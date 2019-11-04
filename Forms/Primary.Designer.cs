@@ -1355,7 +1355,6 @@ namespace DSLauncherV2
             this.aboutInfo.WaterMark = "A Vanilla Server for Microsoft\'s Freelancer.";
             this.aboutInfo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.aboutInfo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.aboutInfo.Click += new System.EventHandler(this.aboutInfo_Click);
             // 
             // metroLabel3
             // 
@@ -1376,7 +1375,6 @@ namespace DSLauncherV2
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
             this.metroLabel3.UseStyleColors = true;
-            this.metroLabel3.Click += new System.EventHandler(this.metroLabel3_Click);
             // 
             // metroStyleManager1
             // 

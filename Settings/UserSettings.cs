@@ -130,6 +130,9 @@ namespace DSLauncherV2
 
         [XmlElement("DisableChat"), DefaultValue(false)]
         public bool DisableChat { get; set; }
+
+        [XmlElement("HDGraphics"), DefaultValue(false)]
+        public bool HDGraphics { get; set; }
     }
 
     public sealed class RecentAccounts

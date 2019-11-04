@@ -82,6 +82,7 @@ namespace DSLauncherV2
             this.NumericDamage.Checked = this.LauncherSettings.UserSettings.Config.NunericDamage;
             this.DisableChat.Checked = this.LauncherSettings.UserSettings.Config.DisableChat;
             this.ThemeSelector.SelectedIndex = this.LauncherSettings.UserSettings.Config.Style;
+            this.HDGraphics.Checked = this.LauncherSettings.UserSettings.Config.HDGraphics;
             this.metroTextBox1.Text = this.LauncherSettings.UserSettings.Config.ExtraArgs; // Optional Args
 
             if (this.LauncherSettings.UserSettings.Config.RecentAccounts == null)

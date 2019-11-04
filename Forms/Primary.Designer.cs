@@ -139,6 +139,8 @@ namespace DSLauncherV2
             this.accountsSearch = new MetroFramework.Controls.MetroTextBox();
             this.accountsSearchLabel = new MetroFramework.Controls.MetroLabel();
             this.OpenSortAccountWindow = new MetroFramework.Controls.MetroButton();
+            this.HDGraphics = new MetroFramework.Controls.MetroToggle();
+            this.HDGraphicsLabel = new MetroFramework.Controls.MetroLabel();
             this.MTC.SuspendLayout();
             this.CNS.SuspendLayout();
             this.ExternalSettings.SuspendLayout();
@@ -240,7 +242,7 @@ namespace DSLauncherV2
             this.MTC.HotTrack = true;
             this.MTC.Location = new System.Drawing.Point(7, 5);
             this.MTC.Name = "MTC";
-            this.MTC.SelectedIndex = 4;
+            this.MTC.SelectedIndex = 2;
             this.MTC.Size = new System.Drawing.Size(526, 367);
             this.MTC.TabIndex = 11;
             this.MTC.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -570,6 +572,8 @@ namespace DSLauncherV2
             // GameSettings
             // 
             this.GameSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.GameSettings.Controls.Add(this.HDGraphicsLabel);
+            this.GameSettings.Controls.Add(this.HDGraphics);
             this.GameSettings.Controls.Add(this.NumericDamageLabel);
             this.GameSettings.Controls.Add(this.NumericDamage);
             this.GameSettings.Controls.Add(this.ChatWarning);
@@ -638,12 +642,12 @@ namespace DSLauncherV2
             // ChatWarning
             // 
             this.ChatWarning.AutoSize = true;
-            this.ChatWarning.Location = new System.Drawing.Point(312, 45);
+            this.ChatWarning.Location = new System.Drawing.Point(312, 77);
             this.ChatWarning.Name = "ChatWarning";
             this.ChatWarning.Size = new System.Drawing.Size(203, 76);
             this.ChatWarning.TabIndex = 54;
             this.ChatWarning.Text = "Disabling the chat for multiplayer\r\nis highly unadvised and can cause\r\nissues. It" +
-    " is largly for recording\r\npurposes.";
+    " is largley for recording\r\npurposes.";
             this.ChatWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ChatWarning.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ChatWarning.UseCustomBackColor = true;
@@ -652,7 +656,7 @@ namespace DSLauncherV2
             // metroLabel15
             // 
             this.metroLabel15.AutoSize = true;
-            this.metroLabel15.Location = new System.Drawing.Point(410, 12);
+            this.metroLabel15.Location = new System.Drawing.Point(410, 43);
             this.metroLabel15.Name = "metroLabel15";
             this.metroLabel15.Size = new System.Drawing.Size(82, 19);
             this.metroLabel15.TabIndex = 53;
@@ -664,7 +668,7 @@ namespace DSLauncherV2
             // 
             this.DisableChat.AutoSize = true;
             this.DisableChat.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DisableChat.Location = new System.Drawing.Point(330, 14);
+            this.DisableChat.Location = new System.Drawing.Point(324, 45);
             this.DisableChat.Name = "DisableChat";
             this.DisableChat.Size = new System.Drawing.Size(80, 17);
             this.DisableChat.TabIndex = 52;
@@ -677,7 +681,7 @@ namespace DSLauncherV2
             // metroLabel17
             // 
             this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(98, 173);
+            this.metroLabel17.Location = new System.Drawing.Point(98, 140);
             this.metroLabel17.Name = "metroLabel17";
             this.metroLabel17.Size = new System.Drawing.Size(111, 19);
             this.metroLabel17.TabIndex = 49;
@@ -689,7 +693,7 @@ namespace DSLauncherV2
             // 
             this.ToggleWindowedMode.AutoSize = true;
             this.ToggleWindowedMode.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ToggleWindowedMode.Location = new System.Drawing.Point(18, 174);
+            this.ToggleWindowedMode.Location = new System.Drawing.Point(18, 141);
             this.ToggleWindowedMode.Name = "ToggleWindowedMode";
             this.ToggleWindowedMode.Size = new System.Drawing.Size(80, 17);
             this.ToggleWindowedMode.TabIndex = 48;
@@ -704,7 +708,7 @@ namespace DSLauncherV2
             this.WidthLabel.AutoSize = true;
             this.WidthLabel.Enabled = false;
             this.WidthLabel.ForeColor = System.Drawing.Color.Black;
-            this.WidthLabel.Location = new System.Drawing.Point(418, 142);
+            this.WidthLabel.Location = new System.Drawing.Point(423, 171);
             this.WidthLabel.Name = "WidthLabel";
             this.WidthLabel.Size = new System.Drawing.Size(15, 19);
             this.WidthLabel.TabIndex = 47;
@@ -717,7 +721,7 @@ namespace DSLauncherV2
             // 
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Enabled = false;
-            this.HeightLabel.Location = new System.Drawing.Point(275, 141);
+            this.HeightLabel.Location = new System.Drawing.Point(281, 171);
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(72, 19);
             this.HeightLabel.TabIndex = 46;
@@ -741,7 +745,7 @@ namespace DSLauncherV2
             this.WidthBox.CustomButton.UseSelectable = true;
             this.WidthBox.CustomButton.Visible = false;
             this.WidthBox.Lines = new string[0];
-            this.WidthBox.Location = new System.Drawing.Point(352, 140);
+            this.WidthBox.Location = new System.Drawing.Point(356, 171);
             this.WidthBox.Margin = new System.Windows.Forms.Padding(0);
             this.WidthBox.MaxLength = 32767;
             this.WidthBox.Name = "WidthBox";
@@ -776,7 +780,7 @@ namespace DSLauncherV2
             this.HeightBox.CustomButton.UseSelectable = true;
             this.HeightBox.CustomButton.Visible = false;
             this.HeightBox.Lines = new string[0];
-            this.HeightBox.Location = new System.Drawing.Point(435, 140);
+            this.HeightBox.Location = new System.Drawing.Point(441, 171);
             this.HeightBox.Margin = new System.Windows.Forms.Padding(0);
             this.HeightBox.MaxLength = 32767;
             this.HeightBox.Name = "HeightBox";
@@ -799,7 +803,7 @@ namespace DSLauncherV2
             // metroLabel14
             // 
             this.metroLabel14.AutoSize = true;
-            this.metroLabel14.Location = new System.Drawing.Point(98, 141);
+            this.metroLabel14.Location = new System.Drawing.Point(98, 171);
             this.metroLabel14.Name = "metroLabel14";
             this.metroLabel14.Size = new System.Drawing.Size(145, 19);
             this.metroLabel14.TabIndex = 43;
@@ -813,7 +817,7 @@ namespace DSLauncherV2
             this.ToggleDesktopRes.Checked = true;
             this.ToggleDesktopRes.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ToggleDesktopRes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ToggleDesktopRes.Location = new System.Drawing.Point(18, 142);
+            this.ToggleDesktopRes.Location = new System.Drawing.Point(18, 173);
             this.ToggleDesktopRes.Name = "ToggleDesktopRes";
             this.ToggleDesktopRes.Size = new System.Drawing.Size(80, 17);
             this.ToggleDesktopRes.TabIndex = 42;
@@ -1671,6 +1675,31 @@ namespace DSLauncherV2
             this.OpenSortAccountWindow.Visible = false;
             this.OpenSortAccountWindow.Click += new System.EventHandler(this.OpenSortAccountWindow_Click);
             // 
+            // HDGraphics
+            // 
+            this.HDGraphics.AutoSize = true;
+            this.HDGraphics.Cursor = System.Windows.Forms.Cursors.Default;
+            this.HDGraphics.Enabled = false;
+            this.HDGraphics.Location = new System.Drawing.Point(324, 15);
+            this.HDGraphics.Name = "HDGraphics";
+            this.HDGraphics.Size = new System.Drawing.Size(80, 17);
+            this.HDGraphics.TabIndex = 57;
+            this.HDGraphics.Text = "Off";
+            this.HDGraphics.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.HDGraphics.UseCustomBackColor = true;
+            this.HDGraphics.UseSelectable = true;
+            // 
+            // HDGraphicsLabel
+            // 
+            this.HDGraphicsLabel.AutoSize = true;
+            this.HDGraphicsLabel.Location = new System.Drawing.Point(410, 15);
+            this.HDGraphicsLabel.Name = "HDGraphicsLabel";
+            this.HDGraphicsLabel.Size = new System.Drawing.Size(81, 19);
+            this.HDGraphicsLabel.TabIndex = 58;
+            this.HDGraphicsLabel.Text = "HD Graphics";
+            this.HDGraphicsLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.HDGraphicsLabel.UseCustomBackColor = true;
+            // 
             // Primary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1838,6 +1867,8 @@ namespace DSLauncherV2
         private MetroFramework.Controls.MetroButton accountsRestore;
         private MetroFramework.Controls.MetroButton accountsBackup;
         private MetroFramework.Controls.MetroButton setNewLauncherPatchServer;
+        private MetroFramework.Controls.MetroLabel HDGraphicsLabel;
+        private MetroFramework.Controls.MetroToggle HDGraphics;
     }
 }
 

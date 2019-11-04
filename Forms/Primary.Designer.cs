@@ -240,7 +240,7 @@ namespace DSLauncherV2
             this.MTC.HotTrack = true;
             this.MTC.Location = new System.Drawing.Point(7, 5);
             this.MTC.Name = "MTC";
-            this.MTC.SelectedIndex = 1;
+            this.MTC.SelectedIndex = 4;
             this.MTC.Size = new System.Drawing.Size(526, 367);
             this.MTC.TabIndex = 11;
             this.MTC.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -929,12 +929,14 @@ namespace DSLauncherV2
             // ToggleDepartingPlayer
             // 
             this.ToggleDepartingPlayer.AutoSize = true;
+            this.ToggleDepartingPlayer.Checked = true;
+            this.ToggleDepartingPlayer.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ToggleDepartingPlayer.Cursor = System.Windows.Forms.Cursors.Default;
             this.ToggleDepartingPlayer.Location = new System.Drawing.Point(18, 110);
             this.ToggleDepartingPlayer.Name = "ToggleDepartingPlayer";
             this.ToggleDepartingPlayer.Size = new System.Drawing.Size(80, 17);
             this.ToggleDepartingPlayer.TabIndex = 36;
-            this.ToggleDepartingPlayer.Text = "Off";
+            this.ToggleDepartingPlayer.Text = "On";
             this.ToggleDepartingPlayer.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ToggleDepartingPlayer.UseCustomBackColor = true;
             this.ToggleDepartingPlayer.UseSelectable = true;
@@ -954,12 +956,14 @@ namespace DSLauncherV2
             // ToggleArrivingPlayer
             // 
             this.ToggleArrivingPlayer.AutoSize = true;
+            this.ToggleArrivingPlayer.Checked = true;
+            this.ToggleArrivingPlayer.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ToggleArrivingPlayer.Cursor = System.Windows.Forms.Cursors.Default;
             this.ToggleArrivingPlayer.Location = new System.Drawing.Point(18, 78);
             this.ToggleArrivingPlayer.Name = "ToggleArrivingPlayer";
             this.ToggleArrivingPlayer.Size = new System.Drawing.Size(80, 17);
             this.ToggleArrivingPlayer.TabIndex = 34;
-            this.ToggleArrivingPlayer.Text = "Off";
+            this.ToggleArrivingPlayer.Text = "On";
             this.ToggleArrivingPlayer.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.ToggleArrivingPlayer.UseCustomBackColor = true;
             this.ToggleArrivingPlayer.UseSelectable = true;
@@ -1333,7 +1337,7 @@ namespace DSLauncherV2
             this.aboutInfo.Multiline = true;
             this.aboutInfo.Name = "aboutInfo";
             this.aboutInfo.PasswordChar = '\0';
-            this.aboutInfo.PromptText = "Thank you for being part of this community <3";
+            this.aboutInfo.PromptText = "A Vanilla Server for Microsoft\'s Freelancer.";
             this.aboutInfo.ReadOnly = true;
             this.aboutInfo.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.aboutInfo.SelectedText = "";
@@ -1348,9 +1352,10 @@ namespace DSLauncherV2
             this.aboutInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.aboutInfo.UseCustomBackColor = true;
             this.aboutInfo.UseSelectable = true;
-            this.aboutInfo.WaterMark = "Thank you for being part of this community <3";
+            this.aboutInfo.WaterMark = "A Vanilla Server for Microsoft\'s Freelancer.";
             this.aboutInfo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.aboutInfo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.aboutInfo.Click += new System.EventHandler(this.aboutInfo_Click);
             // 
             // metroLabel3
             // 
@@ -1362,15 +1367,16 @@ namespace DSLauncherV2
             this.metroLabel3.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.metroLabel3.Location = new System.Drawing.Point(165, 8);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(186, 25);
+            this.metroLabel3.Size = new System.Drawing.Size(227, 25);
             this.metroLabel3.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel3.TabIndex = 16;
-            this.metroLabel3.Text = "About DSLauncher V2";
+            this.metroLabel3.Text = "About 24/7 Zoner Universe";
             this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
             this.metroLabel3.UseStyleColors = true;
+            this.metroLabel3.Click += new System.EventHandler(this.metroLabel3_Click);
             // 
             // metroStyleManager1
             // 

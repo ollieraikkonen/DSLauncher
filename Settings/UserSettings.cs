@@ -62,7 +62,7 @@ namespace DSLauncherV2
 
     public sealed class Config
     {      
-        [XmlElement("ModName"), DefaultValue("Discovery")]
+        [XmlElement("ModName"), DefaultValue("FLU")]
         public string ModName { get; set; }
 
         [XmlElement("InstallPath")]

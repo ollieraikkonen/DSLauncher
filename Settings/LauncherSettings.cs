@@ -41,7 +41,7 @@ namespace DSLauncherV2
                 {
                     UserSettings = (UserSettings)serializer.Deserialize(reader);
                     if (string.IsNullOrEmpty(UserSettings.Config.ModName))
-                        UserSettings.Config.ModName = "Discovery";
+                        UserSettings.Config.ModName = "FLU";
 
                     this.UserSettings.AccountsFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "/My Games/" +
                         this.UserSettings.Config.ModName + "/launcheraccounts.xml");

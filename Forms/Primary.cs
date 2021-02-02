@@ -39,11 +39,11 @@ namespace DSLauncherV2
         {
             // Before we init we want to make sure the patcher is present
             if (!File.Exists(Directory.GetCurrentDirectory() + @"\DSSelfPatch.exe"))
-                ExceptionHandler.Throw(ExceptionCode.P03, "Self Patcher not found. Please reinstall Discovery.", this);
+                ExceptionHandler.Throw(ExceptionCode.P03, "Self Patcher not found. Please reinstall FLU.", this);
 
             InitializeComponent();
             this.ControlBox = true;
-            this.Text = "Discovery Launcher";
+            this.Text = "FLU Launcher";
             this.StyleManager = metroStyleManager1;
             this.metroStyleManager1.Theme = MetroThemeStyle.Dark;
             this.MTC.SelectedTab = CNS;
@@ -121,9 +121,9 @@ namespace DSLauncherV2
         #region Connections
         private void CheckConnectivity()
         {
-            if (this.LauncherSettings.UserSettings.Config.RemotePatchLocation.Contains("discoverygc.com"))
+            if (this.LauncherSettings.UserSettings.Config.RemotePatchLocation.Contains("pechey.net"))
             {
-                this.LauncherSettings.UserSettings.Config.RemotePatchLocation = "http://patch.discoverygc.net/";
+                this.LauncherSettings.UserSettings.Config.RemotePatchLocation = "http://pechey.net/flu/";
                 SaveConfig();
             }
             try
@@ -145,7 +145,7 @@ namespace DSLauncherV2
                 this.LauncherSettings.UserSettings.Config.RemotePatchLocation = Defaults.Settings.KittyURL;
                 this.launcherCheckerLabel.Invoke((Action) (() =>
                 {
-                    this.launcherCheckerLabel.Text = "Contacting Discovery Patch Server...";
+                    this.launcherCheckerLabel.Text = "Contacting FLU Patch Server...";
                     this.launcherCheckerLabel.Refresh();
                     Application.DoEvents();
                 }));
@@ -388,7 +388,7 @@ namespace DSLauncherV2
             
             try
             {
-                doc = web.Load("http://patch.discoverygc.net/launcherimages/");
+                doc = web.Load("http://pechey.net/flu/launcherimages/");
             }
             catch
             {
@@ -461,18 +461,16 @@ namespace DSLauncherV2
                     StringBuilder sb = new StringBuilder();
 
                     sb.Append(
-                        "Discovery Freelancer is brought to you by the Discovery Development team.\r\n\r\n");
+                        "Freelancer Universe is brought to you by the Discovery Development team.\r\n\r\n");
 
-                    sb.Append("- DSLauncher 2.x Credits -\r\n");
+                    sb.Append("- Based on DS Launcher -\r\n");
                     sb.Append("Cannon and Kazinsal for the account generator,\r\n");
                     sb.Append("Alley for the original launcher code,\r\n");
                     sb.Append("Alex. for the decompliation of the original launcher,\r\n");
                     sb.Append("Laz for progamming the V2 launcher and continued development,\r\n");
                     sb.Append("Kazinsal for aesthetic updates,\r\n");
-                    sb.Append("thedoctor45 for the logo...\r\n");
-                    sb.Append("...and you for being part of the community and keeping Discovery alive.\r\n\r\n");
 
-                    sb.Append("Discovery Launcher ");
+                    sb.Append("FLU Launcher ");
                     sb.Append(Assembly.GetEntryAssembly().GetName().Version.Major);
                     sb.Append(".");
                     sb.Append(Assembly.GetEntryAssembly().GetName().Version.Minor);

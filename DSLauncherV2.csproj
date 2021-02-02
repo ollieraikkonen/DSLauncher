@@ -154,6 +154,23 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\nav_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\launcherbackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tabbackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patchgamebackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\placeholder.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

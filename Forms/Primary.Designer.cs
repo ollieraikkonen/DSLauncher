@@ -37,6 +37,7 @@ namespace DSLauncherV2
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Primary));
+            this.PictureBox = new System.Windows.Forms.PictureBox();
             this.actionsLabel = new MetroFramework.Controls.MetroLabel();
             this.hrLabel1 = new System.Windows.Forms.Label();
             this.currentAccountLabel = new MetroFramework.Controls.MetroLabel();
@@ -44,29 +45,56 @@ namespace DSLauncherV2
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.MTC = new MetroFramework.Controls.MetroTabControl();
-            this.CNS = new MetroFramework.Controls.MetroTabPage();
-            this.CNSImport = new System.Windows.Forms.WebBrowser();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
-            this.ExternalSettings = new MetroFramework.Controls.MetroTabPage();
-            this.setNewLauncherPatchServer = new MetroFramework.Controls.MetroButton();
-            this.accountsRestore = new MetroFramework.Controls.MetroButton();
-            this.accountsBackup = new MetroFramework.Controls.MetroButton();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
-            this.ThemeSelector = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.DiscordRPCCheckBox = new MetroFramework.Controls.MetroToggle();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.ToggleLocalTime = new MetroFramework.Controls.MetroToggle();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.ToggleLogTime = new MetroFramework.Controls.MetroToggle();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.ToggleChatAppend = new MetroFramework.Controls.MetroToggle();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.ToggleChatLog = new MetroFramework.Controls.MetroToggle();
+            this.AccountContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.bulkSetCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateNewAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteSelectedAccounts = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExportAccounts = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.MarkFavorite = new System.Windows.Forms.ToolStripMenuItem();
+            this.importLauncherAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.LoadingBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.launchGame = new MetroFramework.Controls.MetroLink();
+            this.patchGame = new MetroFramework.Controls.MetroLink();
+            this.ExportAccountSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.CurrentSelectedAccountLabel = new MetroFramework.Controls.MetroLabel();
+            this.FavAccount1 = new MetroFramework.Controls.MetroLink();
+            this.FavAccount2 = new MetroFramework.Controls.MetroLink();
+            this.FavAccount3 = new MetroFramework.Controls.MetroLink();
+            this.FavAccount4 = new MetroFramework.Controls.MetroLink();
+            this.RecentAccounts4 = new MetroFramework.Controls.MetroLink();
+            this.RecentAccounts3 = new MetroFramework.Controls.MetroLink();
+            this.RecentAccounts2 = new MetroFramework.Controls.MetroLink();
+            this.RecentAccounts1 = new MetroFramework.Controls.MetroLink();
+            this.ImportLauncherFile = new System.Windows.Forms.OpenFileDialog();
+            this.downloadProgress = new MetroFramework.Controls.MetroLabel();
+            this.patchDownload = new MetroFramework.Controls.MetroProgressBar();
+            this.launcherCheckerLabel = new MetroFramework.Controls.MetroLabel();
+            this.launcherPatchSpinner = new MetroFramework.Controls.MetroProgressSpinner();
+            this.accountsSearch = new MetroFramework.Controls.MetroTextBox();
+            this.accountsSearchLabel = new MetroFramework.Controls.MetroLabel();
+            this.OpenSortAccountWindow = new MetroFramework.Controls.MetroButton();
+            this.About = new MetroFramework.Controls.MetroTabPage();
+            this.metroTile4 = new MetroFramework.Controls.MetroTile();
+            this.metroTile3 = new MetroFramework.Controls.MetroTile();
+            this.metroTile2 = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.aboutInfo = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.Accounts = new MetroFramework.Controls.MetroTabPage();
+            this.AccountsGrid = new MetroFramework.Controls.MetroGrid();
+            this.AccName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccIsFav = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccSignature = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountCategoryTabControl = new MetroFramework.Controls.MetroTabControl();
+            this.unfilteredTab = new System.Windows.Forms.TabPage();
             this.GameSettings = new MetroFramework.Controls.MetroTabPage();
+            this.HDGraphicsLabel = new MetroFramework.Controls.MetroLabel();
+            this.HDGraphics = new MetroFramework.Controls.MetroToggle();
             this.NumericDamageLabel = new MetroFramework.Controls.MetroLabel();
             this.NumericDamage = new MetroFramework.Controls.MetroToggle();
             this.ChatWarning = new MetroFramework.Controls.MetroLabel();
@@ -92,70 +120,55 @@ namespace DSLauncherV2
             this.ToggleLagIcon = new MetroFramework.Controls.MetroToggle();
             this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.ToggleFlightText = new MetroFramework.Controls.MetroToggle();
-            this.Accounts = new MetroFramework.Controls.MetroTabPage();
-            this.AccountsGrid = new MetroFramework.Controls.MetroGrid();
-            this.AccName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccIsFav = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccSignature = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountContextMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.bulkSetCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CreateNewAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteSelectedAccounts = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExportAccounts = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.MarkFavorite = new System.Windows.Forms.ToolStripMenuItem();
-            this.importLauncherAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AccountCategoryTabControl = new MetroFramework.Controls.MetroTabControl();
-            this.unfilteredTab = new System.Windows.Forms.TabPage();
-            this.About = new MetroFramework.Controls.MetroTabPage();
-            this.metroTile4 = new MetroFramework.Controls.MetroTile();
-            this.metroTile3 = new MetroFramework.Controls.MetroTile();
-            this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
-            this.aboutInfo = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.LoadingBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.launchGame = new MetroFramework.Controls.MetroLink();
-            this.patchGame = new MetroFramework.Controls.MetroLink();
-            this.ExportAccountSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.CurrentSelectedAccountLabel = new MetroFramework.Controls.MetroLabel();
-            this.FavAccount1 = new MetroFramework.Controls.MetroLink();
-            this.FavAccount2 = new MetroFramework.Controls.MetroLink();
-            this.FavAccount3 = new MetroFramework.Controls.MetroLink();
-            this.FavAccount4 = new MetroFramework.Controls.MetroLink();
-            this.RecentAccounts4 = new MetroFramework.Controls.MetroLink();
-            this.RecentAccounts3 = new MetroFramework.Controls.MetroLink();
-            this.RecentAccounts2 = new MetroFramework.Controls.MetroLink();
-            this.RecentAccounts1 = new MetroFramework.Controls.MetroLink();
-            this.ImportLauncherFile = new System.Windows.Forms.OpenFileDialog();
-            this.downloadProgress = new MetroFramework.Controls.MetroLabel();
-            this.patchDownload = new MetroFramework.Controls.MetroProgressBar();
-            this.launcherCheckerLabel = new MetroFramework.Controls.MetroLabel();
-            this.launcherPatchSpinner = new MetroFramework.Controls.MetroProgressSpinner();
-            this.accountsSearch = new MetroFramework.Controls.MetroTextBox();
-            this.accountsSearchLabel = new MetroFramework.Controls.MetroLabel();
-            this.OpenSortAccountWindow = new MetroFramework.Controls.MetroButton();
-            this.HDGraphics = new MetroFramework.Controls.MetroToggle();
-            this.HDGraphicsLabel = new MetroFramework.Controls.MetroLabel();
-            this.MTC.SuspendLayout();
-            this.CNS.SuspendLayout();
-            this.ExternalSettings.SuspendLayout();
-            this.GameSettings.SuspendLayout();
+            this.ExternalSettings = new MetroFramework.Controls.MetroTabPage();
+            this.setNewLauncherPatchServer = new MetroFramework.Controls.MetroButton();
+            this.accountsRestore = new MetroFramework.Controls.MetroButton();
+            this.accountsBackup = new MetroFramework.Controls.MetroButton();
+            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
+            this.ThemeSelector = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this.DiscordRPCCheckBox = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
+            this.ToggleLocalTime = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.ToggleLogTime = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.ToggleChatAppend = new MetroFramework.Controls.MetroToggle();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.ToggleChatLog = new MetroFramework.Controls.MetroToggle();
+            this.CNS = new MetroFramework.Controls.MetroTabPage();
+            this.CNSImport = new System.Windows.Forms.WebBrowser();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
+            this.MTC = new MetroFramework.Controls.MetroTabControl();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
+            this.AccountContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.About.SuspendLayout();
             this.Accounts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccountsGrid)).BeginInit();
-            this.AccountContextMenu.SuspendLayout();
             this.AccountCategoryTabControl.SuspendLayout();
-            this.About.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.GameSettings.SuspendLayout();
+            this.ExternalSettings.SuspendLayout();
+            this.CNS.SuspendLayout();
+            this.MTC.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // PictureBox
+            // 
+            this.PictureBox.Image = global::DSLauncherV2.Properties.Resources.launcherbackground;
+            this.PictureBox.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.Size = new System.Drawing.Size(800, 450);
+            this.PictureBox.TabIndex = 0;
+            this.PictureBox.TabStop = false;
             // 
             // actionsLabel
             // 
+            this.actionsLabel.Parent = PictureBox;
             this.actionsLabel.AutoSize = true;
+            this.actionsLabel.BackColor = System.Drawing.Color.Transparent;
             this.actionsLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.actionsLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.actionsLabel.Location = new System.Drawing.Point(536, 11);
@@ -199,7 +212,7 @@ namespace DSLauncherV2
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.ForeColor = System.Drawing.SystemColors.Control;
             this.metroLabel1.Location = new System.Drawing.Point(536, 124);
@@ -222,352 +235,686 @@ namespace DSLauncherV2
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.ForeColor = System.Drawing.SystemColors.Control;
+            this.metroLabel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.metroLabel2.Location = new System.Drawing.Point(536, 247);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(154, 25);
             this.metroLabel2.TabIndex = 9;
             this.metroLabel2.Text = "Favourite Accounts";
-            this.metroLabel2.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // MTC
+            // AccountContextMenu
             // 
-            this.MTC.Controls.Add(this.CNS);
-            this.MTC.Controls.Add(this.ExternalSettings);
-            this.MTC.Controls.Add(this.GameSettings);
-            this.MTC.Controls.Add(this.Accounts);
-            this.MTC.Controls.Add(this.About);
-            this.MTC.Enabled = false;
-            this.MTC.HotTrack = true;
-            this.MTC.Location = new System.Drawing.Point(7, 5);
-            this.MTC.Name = "MTC";
-            this.MTC.SelectedIndex = 2;
-            this.MTC.Size = new System.Drawing.Size(526, 367);
-            this.MTC.TabIndex = 11;
-            this.MTC.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.MTC.UseSelectable = true;
-            this.MTC.SelectedIndexChanged += new System.EventHandler(this.MTC_SelectedIndexChanged);
+            this.AccountContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.AccountContextMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.AccountContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bulkSetCategoryToolStripMenuItem,
+            this.CreateNewAccount,
+            this.DeleteSelectedAccounts,
+            this.ExportAccounts,
+            this.EditAccount,
+            this.MarkFavorite,
+            this.importLauncherAccountsToolStripMenuItem});
+            this.AccountContextMenu.Name = "metroContextMenu1";
+            this.AccountContextMenu.Size = new System.Drawing.Size(216, 158);
+            this.AccountContextMenu.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.AccountContextMenu.UseStyleColors = true;
             // 
-            // CNS
+            // bulkSetCategoryToolStripMenuItem
             // 
-            this.CNS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.CNS.Controls.Add(this.CNSImport);
-            this.CNS.Controls.Add(this.metroLabel18);
-            this.CNS.Controls.Add(this.metroProgressSpinner1);
-            this.CNS.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.CNS.HorizontalScrollbarBarColor = true;
-            this.CNS.HorizontalScrollbarHighlightOnWheel = false;
-            this.CNS.HorizontalScrollbarSize = 10;
-            this.CNS.Location = new System.Drawing.Point(4, 38);
-            this.CNS.Name = "CNS";
-            this.CNS.Size = new System.Drawing.Size(518, 325);
-            this.CNS.TabIndex = 0;
-            this.CNS.Text = "News";
-            this.CNS.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.CNS.UseCustomBackColor = true;
-            this.CNS.VerticalScrollbarBarColor = true;
-            this.CNS.VerticalScrollbarHighlightOnWheel = false;
-            this.CNS.VerticalScrollbarSize = 10;
+            this.bulkSetCategoryToolStripMenuItem.Name = "bulkSetCategoryToolStripMenuItem";
+            this.bulkSetCategoryToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.bulkSetCategoryToolStripMenuItem.Text = "Bulk Set Category";
+            this.bulkSetCategoryToolStripMenuItem.Click += new System.EventHandler(this.SetSelectedAccountsCategory);
             // 
-            // CNSImport
+            // CreateNewAccount
             // 
-            this.CNSImport.AllowNavigation = false;
-            this.CNSImport.AllowWebBrowserDrop = false;
-            this.CNSImport.IsWebBrowserContextMenuEnabled = false;
-            this.CNSImport.Location = new System.Drawing.Point(3, 3);
-            this.CNSImport.MinimumSize = new System.Drawing.Size(20, 20);
-            this.CNSImport.Name = "CNSImport";
-            this.CNSImport.ScrollBarsEnabled = false;
-            this.CNSImport.Size = new System.Drawing.Size(512, 319);
-            this.CNSImport.TabIndex = 23;
-            this.CNSImport.TabStop = false;
-            this.CNSImport.WebBrowserShortcutsEnabled = false;
-            this.CNSImport.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.CNSImport_Navigating);
+            this.CreateNewAccount.Name = "CreateNewAccount";
+            this.CreateNewAccount.Size = new System.Drawing.Size(215, 22);
+            this.CreateNewAccount.Text = "Create New Accounts";
+            this.CreateNewAccount.Click += new System.EventHandler(this.CreateNewAccount_Click);
             // 
-            // metroLabel18
+            // DeleteSelectedAccounts
             // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel18.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel18.ForeColor = System.Drawing.SystemColors.Control;
-            this.metroLabel18.Location = new System.Drawing.Point(197, 116);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(229, 25);
-            this.metroLabel18.TabIndex = 20;
-            this.metroLabel18.Text = "Connecting to DiscoveryGC";
-            this.metroLabel18.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel18.UseCustomBackColor = true;
+            this.DeleteSelectedAccounts.Name = "DeleteSelectedAccounts";
+            this.DeleteSelectedAccounts.Size = new System.Drawing.Size(215, 22);
+            this.DeleteSelectedAccounts.Text = "Delete Selected Accounts";
+            this.DeleteSelectedAccounts.Click += new System.EventHandler(this.DeleteSelectedAccounts_Click);
             // 
-            // metroProgressSpinner1
+            // ExportAccounts
             // 
-            this.metroProgressSpinner1.Location = new System.Drawing.Point(140, 110);
-            this.metroProgressSpinner1.Maximum = 100;
-            this.metroProgressSpinner1.Minimum = 30;
-            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
-            this.metroProgressSpinner1.Size = new System.Drawing.Size(41, 31);
-            this.metroProgressSpinner1.Speed = 3F;
-            this.metroProgressSpinner1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroProgressSpinner1.TabIndex = 19;
-            this.metroProgressSpinner1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroProgressSpinner1.UseCustomBackColor = true;
-            this.metroProgressSpinner1.UseSelectable = true;
-            this.metroProgressSpinner1.Value = 40;
+            this.ExportAccounts.Name = "ExportAccounts";
+            this.ExportAccounts.Size = new System.Drawing.Size(215, 22);
+            this.ExportAccounts.Text = "Export Selected Accounts";
+            this.ExportAccounts.Click += new System.EventHandler(this.ExportAccounts_Click);
             // 
-            // ExternalSettings
+            // EditAccount
             // 
-            this.ExternalSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.ExternalSettings.Controls.Add(this.setNewLauncherPatchServer);
-            this.ExternalSettings.Controls.Add(this.accountsRestore);
-            this.ExternalSettings.Controls.Add(this.accountsBackup);
-            this.ExternalSettings.Controls.Add(this.metroLabel20);
-            this.ExternalSettings.Controls.Add(this.metroLabel23);
-            this.ExternalSettings.Controls.Add(this.ThemeSelector);
-            this.ExternalSettings.Controls.Add(this.metroLabel19);
-            this.ExternalSettings.Controls.Add(this.DiscordRPCCheckBox);
-            this.ExternalSettings.Controls.Add(this.metroLabel7);
-            this.ExternalSettings.Controls.Add(this.ToggleLocalTime);
-            this.ExternalSettings.Controls.Add(this.metroLabel6);
-            this.ExternalSettings.Controls.Add(this.ToggleLogTime);
-            this.ExternalSettings.Controls.Add(this.metroLabel5);
-            this.ExternalSettings.Controls.Add(this.ToggleChatAppend);
-            this.ExternalSettings.Controls.Add(this.metroLabel4);
-            this.ExternalSettings.Controls.Add(this.ToggleChatLog);
-            this.ExternalSettings.HorizontalScrollbarBarColor = true;
-            this.ExternalSettings.HorizontalScrollbarHighlightOnWheel = false;
-            this.ExternalSettings.HorizontalScrollbarSize = 10;
-            this.ExternalSettings.Location = new System.Drawing.Point(4, 38);
-            this.ExternalSettings.Name = "ExternalSettings";
-            this.ExternalSettings.Size = new System.Drawing.Size(518, 325);
-            this.ExternalSettings.TabIndex = 2;
-            this.ExternalSettings.Text = "External Settings";
-            this.ExternalSettings.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ExternalSettings.UseCustomBackColor = true;
-            this.ExternalSettings.VerticalScrollbarBarColor = true;
-            this.ExternalSettings.VerticalScrollbarHighlightOnWheel = false;
-            this.ExternalSettings.VerticalScrollbarSize = 10;
+            this.EditAccount.Name = "EditAccount";
+            this.EditAccount.Size = new System.Drawing.Size(215, 22);
+            this.EditAccount.Text = "Edit Selected Accounts";
+            this.EditAccount.Click += new System.EventHandler(this.EditAccount_Click);
             // 
-            // setNewLauncherPatchServer
+            // MarkFavorite
             // 
-            this.setNewLauncherPatchServer.Location = new System.Drawing.Point(303, 257);
-            this.setNewLauncherPatchServer.Name = "setNewLauncherPatchServer";
-            this.setNewLauncherPatchServer.Size = new System.Drawing.Size(184, 29);
-            this.setNewLauncherPatchServer.TabIndex = 50;
-            this.setNewLauncherPatchServer.Text = "Set New Launcher Patch Server";
-            this.setNewLauncherPatchServer.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.setNewLauncherPatchServer.UseSelectable = true;
-            this.setNewLauncherPatchServer.UseStyleColors = true;
-            this.setNewLauncherPatchServer.Click += new System.EventHandler(this.setNewLauncherPatchServer_Click);
+            this.MarkFavorite.Name = "MarkFavorite";
+            this.MarkFavorite.Size = new System.Drawing.Size(215, 22);
+            this.MarkFavorite.Text = "Mark/Unmark Favorite";
+            this.MarkFavorite.Click += new System.EventHandler(this.MarkFavorite_Click);
             // 
-            // accountsRestore
+            // importLauncherAccountsToolStripMenuItem
             // 
-            this.accountsRestore.Location = new System.Drawing.Point(320, 115);
-            this.accountsRestore.Name = "accountsRestore";
-            this.accountsRestore.Size = new System.Drawing.Size(143, 23);
-            this.accountsRestore.TabIndex = 49;
-            this.accountsRestore.Text = "Restore My Backup";
-            this.accountsRestore.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.accountsRestore.UseSelectable = true;
-            this.accountsRestore.UseStyleColors = true;
-            this.accountsRestore.Click += new System.EventHandler(this.accountsRestore_Click);
+            this.importLauncherAccountsToolStripMenuItem.Name = "importLauncherAccountsToolStripMenuItem";
+            this.importLauncherAccountsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.importLauncherAccountsToolStripMenuItem.Text = "Import Launcher Accounts";
+            this.importLauncherAccountsToolStripMenuItem.Click += new System.EventHandler(this.importLauncherAccountsToolStripMenuItem_Click);
             // 
-            // accountsBackup
+            // metroStyleManager1
             // 
-            this.accountsBackup.Location = new System.Drawing.Point(320, 77);
-            this.accountsBackup.Name = "accountsBackup";
-            this.accountsBackup.Size = new System.Drawing.Size(143, 23);
-            this.accountsBackup.TabIndex = 48;
-            this.accountsBackup.Text = "Backup My Accounts";
-            this.accountsBackup.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.accountsBackup.UseSelectable = true;
-            this.accountsBackup.UseStyleColors = true;
-            this.accountsBackup.Click += new System.EventHandler(this.accountsBackup_Click);
+            this.metroStyleManager1.Owner = this;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
-            // metroLabel20
+            // LoadingBackgroundWorker
             // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.Location = new System.Drawing.Point(329, 12);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(134, 19);
-            this.metroLabel20.TabIndex = 20;
-            this.metroLabel20.Text = "Experimental Settings";
-            this.metroLabel20.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel20.UseCustomBackColor = true;
+            this.LoadingBackgroundWorker.WorkerReportsProgress = true;
+            this.LoadingBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.LoadingBackgroundWorker_DoWork);
+            this.LoadingBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.LoadingBackgroundWorker_ProgressChanged);
+            this.LoadingBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.LoadingBackgroundWorker_RunWorkerCompleted);
             // 
-            // metroLabel23
+            // launchGame
             // 
-            this.metroLabel23.AutoSize = true;
-            this.metroLabel23.Location = new System.Drawing.Point(61, 235);
-            this.metroLabel23.Name = "metroLabel23";
-            this.metroLabel23.Size = new System.Drawing.Size(92, 19);
-            this.metroLabel23.TabIndex = 19;
-            this.metroLabel23.Text = "Launcher Style";
-            this.metroLabel23.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel23.UseCustomBackColor = true;
+            this.launchGame.BackColor = System.Drawing.Color.Transparent;
+            this.launchGame.BackgroundImage = global::DSLauncherV2.Properties.Resources.patchgamebackground;
+            this.launchGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.launchGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.launchGame.Enabled = false;
+            this.launchGame.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.launchGame.Location = new System.Drawing.Point(536, 44);
+            this.launchGame.Name = "launchGame";
+            this.launchGame.Size = new System.Drawing.Size(203, 29);
+            this.launchGame.Style = MetroFramework.MetroColorStyle.Blue;
+            this.launchGame.TabIndex = 12;
+            this.launchGame.Text = "&Launch Game";
+            this.launchGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.launchGame.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.launchGame.UseSelectable = true;
+            this.launchGame.Click += new System.EventHandler(this.launchGame_Click);
+            this.launchGame.MouseEnter += new System.EventHandler(this.launchGame_MouseEnter);
+            this.launchGame.MouseLeave += new System.EventHandler(this.launchGame_MouseLeave);
             // 
-            // ThemeSelector
+            // patchGame
             // 
-            this.ThemeSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.ThemeSelector.FormattingEnabled = true;
-            this.ThemeSelector.ItemHeight = 23;
-            this.ThemeSelector.Items.AddRange(new object[] {
-            "Default",
-            "Black",
-            "White",
-            "Silver",
-            "Blue",
-            "Green",
-            "Lime",
-            "Teal",
-            "Orange",
-            "Brown",
-            "Pink",
-            "Magenta",
-            "Purple",
-            "Red",
-            "Yellow"});
-            this.ThemeSelector.Location = new System.Drawing.Point(32, 257);
-            this.ThemeSelector.Name = "ThemeSelector";
-            this.ThemeSelector.Size = new System.Drawing.Size(142, 29);
-            this.ThemeSelector.TabIndex = 18;
-            this.ThemeSelector.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ThemeSelector.UseCustomBackColor = true;
-            this.ThemeSelector.UseSelectable = true;
-            this.ThemeSelector.UseStyleColors = true;
-            this.ThemeSelector.SelectedIndexChanged += new System.EventHandler(this.ThemeSelector_SelectedIndexChanged);
+            this.patchGame.BackColor = System.Drawing.Color.Transparent;
+            this.patchGame.BackgroundImage = global::DSLauncherV2.Properties.Resources.patchgamebackground;
+            this.patchGame.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.patchGame.Enabled = false;
+            this.patchGame.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.patchGame.Location = new System.Drawing.Point(536, 68);
+            this.patchGame.Name = "patchGame";
+            this.patchGame.Size = new System.Drawing.Size(203, 29);
+            this.patchGame.Style = MetroFramework.MetroColorStyle.Blue;
+            this.patchGame.TabIndex = 13;
+            this.patchGame.Text = "&Patch Game";
+            this.patchGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.patchGame.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.patchGame.UseSelectable = true;
+            this.patchGame.Click += new System.EventHandler(this.patchGame_Click);
+            this.patchGame.MouseEnter += new System.EventHandler(this.patchGame_MouseEnter);
+            this.patchGame.MouseLeave += new System.EventHandler(this.patchGame_MouseLeave);
             // 
-            // metroLabel19
+            // ExportAccountSaveFileDialog
             // 
-            this.metroLabel19.AutoSize = true;
-            this.metroLabel19.Location = new System.Drawing.Point(359, 45);
-            this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(109, 19);
-            this.metroLabel19.TabIndex = 11;
-            this.metroLabel19.Text = "Discord Presence";
-            this.metroLabel19.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel19.UseCustomBackColor = true;
+            this.ExportAccountSaveFileDialog.CreatePrompt = true;
+            this.ExportAccountSaveFileDialog.DefaultExt = "xml";
+            this.ExportAccountSaveFileDialog.FileName = "Launcher Accounts";
+            this.ExportAccountSaveFileDialog.Filter = "XML File|*.xml";
+            this.ExportAccountSaveFileDialog.Title = "Save File As...";
+            this.ExportAccountSaveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.ExportAccountSaveFileDialog_FileOk);
             // 
-            // DiscordRPCCheckBox
+            // CurrentSelectedAccountLabel
             // 
-            this.DiscordRPCCheckBox.AutoSize = true;
-            this.DiscordRPCCheckBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DiscordRPCCheckBox.Enabled = false;
-            this.DiscordRPCCheckBox.Location = new System.Drawing.Point(279, 46);
-            this.DiscordRPCCheckBox.Name = "DiscordRPCCheckBox";
-            this.DiscordRPCCheckBox.Size = new System.Drawing.Size(80, 17);
-            this.DiscordRPCCheckBox.TabIndex = 10;
-            this.DiscordRPCCheckBox.Text = "Off";
-            this.DiscordRPCCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.DiscordRPCCheckBox.UseCustomBackColor = true;
-            this.DiscordRPCCheckBox.UseSelectable = true;
+            this.CurrentSelectedAccountLabel.AutoSize = true;
+            this.CurrentSelectedAccountLabel.BackColor = System.Drawing.Color.Transparent;
+            this.CurrentSelectedAccountLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.CurrentSelectedAccountLabel.Location = new System.Drawing.Point(121, 372);
+            this.CurrentSelectedAccountLabel.Name = "CurrentSelectedAccountLabel";
+            this.CurrentSelectedAccountLabel.Size = new System.Drawing.Size(181, 19);
+            this.CurrentSelectedAccountLabel.TabIndex = 19;
+            this.CurrentSelectedAccountLabel.Text = "No account currently selected";
+            this.CurrentSelectedAccountLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.CurrentSelectedAccountLabel.UseCustomForeColor = true;
             // 
-            // metroLabel7
+            // FavAccount1
             // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(98, 109);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(98, 19);
-            this.metroLabel7.TabIndex = 9;
-            this.metroLabel7.Text = "Log Local Time";
-            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel7.UseCustomBackColor = true;
+            this.FavAccount1.BackColor = System.Drawing.Color.Transparent;
+            this.FavAccount1.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.FavAccount1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FavAccount1.Image = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.FavAccount1.Location = new System.Drawing.Point(536, 280);
+            this.FavAccount1.Name = "FavAccount1";
+            this.FavAccount1.Size = new System.Drawing.Size(240, 23);
+            this.FavAccount1.TabIndex = 20;
+            this.FavAccount1.Text = "%placeholder%";
+            this.FavAccount1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FavAccount1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FavAccount1.UseSelectable = true;
+            this.FavAccount1.UseStyleColors = true;
+            this.FavAccount1.Visible = false;
+            this.FavAccount1.Click += new System.EventHandler(this.QuickSelectAccount);
             // 
-            // ToggleLocalTime
+            // FavAccount2
             // 
-            this.ToggleLocalTime.AutoSize = true;
-            this.ToggleLocalTime.Checked = true;
-            this.ToggleLocalTime.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ToggleLocalTime.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ToggleLocalTime.Location = new System.Drawing.Point(18, 110);
-            this.ToggleLocalTime.Name = "ToggleLocalTime";
-            this.ToggleLocalTime.Size = new System.Drawing.Size(80, 17);
-            this.ToggleLocalTime.TabIndex = 8;
-            this.ToggleLocalTime.Text = "On";
-            this.ToggleLocalTime.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ToggleLocalTime.UseCustomBackColor = true;
-            this.ToggleLocalTime.UseSelectable = true;
-            this.ToggleLocalTime.CheckedChanged += new System.EventHandler(this.ToggleLocalTime_CheckedChanged);
+            this.FavAccount2.BackColor = System.Drawing.Color.Transparent;
+            this.FavAccount2.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.FavAccount2.Location = new System.Drawing.Point(536, 300);
+            this.FavAccount2.Name = "FavAccount2";
+            this.FavAccount2.Size = new System.Drawing.Size(240, 23);
+            this.FavAccount2.TabIndex = 21;
+            this.FavAccount2.Text = "%placeholder%";
+            this.FavAccount2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FavAccount2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FavAccount2.UseSelectable = true;
+            this.FavAccount2.UseStyleColors = true;
+            this.FavAccount2.Visible = false;
+            this.FavAccount2.Click += new System.EventHandler(this.QuickSelectAccount);
             // 
-            // metroLabel6
+            // FavAccount3
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(98, 77);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(64, 19);
-            this.metroLabel6.TabIndex = 7;
-            this.metroLabel6.Text = "Log Time";
-            this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel6.UseCustomBackColor = true;
+            this.FavAccount3.BackColor = System.Drawing.Color.Transparent;
+            this.FavAccount3.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.FavAccount3.Location = new System.Drawing.Point(536, 320);
+            this.FavAccount3.Name = "FavAccount3";
+            this.FavAccount3.Size = new System.Drawing.Size(240, 23);
+            this.FavAccount3.TabIndex = 22;
+            this.FavAccount3.Text = "%placeholder%";
+            this.FavAccount3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FavAccount3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FavAccount3.UseSelectable = true;
+            this.FavAccount3.UseStyleColors = true;
+            this.FavAccount3.Visible = false;
+            this.FavAccount3.Click += new System.EventHandler(this.QuickSelectAccount);
             // 
-            // ToggleLogTime
+            // FavAccount4
             // 
-            this.ToggleLogTime.AutoSize = true;
-            this.ToggleLogTime.Checked = true;
-            this.ToggleLogTime.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ToggleLogTime.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ToggleLogTime.Location = new System.Drawing.Point(18, 78);
-            this.ToggleLogTime.Name = "ToggleLogTime";
-            this.ToggleLogTime.Size = new System.Drawing.Size(80, 17);
-            this.ToggleLogTime.TabIndex = 6;
-            this.ToggleLogTime.Text = "On";
-            this.ToggleLogTime.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ToggleLogTime.UseCustomBackColor = true;
-            this.ToggleLogTime.UseSelectable = true;
-            this.ToggleLogTime.CheckedChanged += new System.EventHandler(this.ToggleLogTime_CheckedChanged);
+            this.FavAccount4.BackColor = System.Drawing.Color.Transparent;
+            this.FavAccount4.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.FavAccount4.Location = new System.Drawing.Point(536, 340);
+            this.FavAccount4.Name = "FavAccount4";
+            this.FavAccount4.Size = new System.Drawing.Size(240, 23);
+            this.FavAccount4.TabIndex = 23;
+            this.FavAccount4.Text = "%placeholder%";
+            this.FavAccount4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FavAccount4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FavAccount4.UseSelectable = true;
+            this.FavAccount4.UseStyleColors = true;
+            this.FavAccount4.Visible = false;
+            this.FavAccount4.Click += new System.EventHandler(this.QuickSelectAccount);
             // 
-            // metroLabel5
+            // RecentAccounts4
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(98, 45);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(87, 19);
-            this.metroLabel5.TabIndex = 5;
-            this.metroLabel5.Text = "Append Logs";
-            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel5.UseCustomBackColor = true;
+            this.RecentAccounts4.BackColor = System.Drawing.Color.Transparent;
+            this.RecentAccounts4.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.RecentAccounts4.Location = new System.Drawing.Point(536, 218);
+            this.RecentAccounts4.Name = "RecentAccounts4";
+            this.RecentAccounts4.Size = new System.Drawing.Size(240, 23);
+            this.RecentAccounts4.TabIndex = 27;
+            this.RecentAccounts4.Text = "%placeholder%";
+            this.RecentAccounts4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecentAccounts4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.RecentAccounts4.UseSelectable = true;
+            this.RecentAccounts4.UseStyleColors = true;
+            this.RecentAccounts4.Visible = false;
+            this.RecentAccounts4.Click += new System.EventHandler(this.QuickSelectAccount);
             // 
-            // ToggleChatAppend
+            // RecentAccounts3
             // 
-            this.ToggleChatAppend.AutoSize = true;
-            this.ToggleChatAppend.Checked = true;
-            this.ToggleChatAppend.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ToggleChatAppend.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ToggleChatAppend.Location = new System.Drawing.Point(18, 46);
-            this.ToggleChatAppend.Name = "ToggleChatAppend";
-            this.ToggleChatAppend.Size = new System.Drawing.Size(80, 17);
-            this.ToggleChatAppend.TabIndex = 4;
-            this.ToggleChatAppend.Text = "On";
-            this.ToggleChatAppend.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ToggleChatAppend.UseCustomBackColor = true;
-            this.ToggleChatAppend.UseSelectable = true;
-            this.ToggleChatAppend.CheckedChanged += new System.EventHandler(this.ToggleChatAppend_CheckedChanged);
+            this.RecentAccounts3.BackColor = System.Drawing.Color.Transparent;
+            this.RecentAccounts3.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.RecentAccounts3.Location = new System.Drawing.Point(536, 198);
+            this.RecentAccounts3.Name = "RecentAccounts3";
+            this.RecentAccounts3.Size = new System.Drawing.Size(240, 23);
+            this.RecentAccounts3.TabIndex = 26;
+            this.RecentAccounts3.Text = "%placeholder%";
+            this.RecentAccounts3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecentAccounts3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.RecentAccounts3.UseSelectable = true;
+            this.RecentAccounts3.UseStyleColors = true;
+            this.RecentAccounts3.Visible = false;
+            this.RecentAccounts3.Click += new System.EventHandler(this.QuickSelectAccount);
             // 
-            // metroLabel4
+            // RecentAccounts2
             // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(98, 13);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(62, 19);
-            this.metroLabel4.TabIndex = 3;
-            this.metroLabel4.Text = "Chat Log";
-            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel4.UseCustomBackColor = true;
+            this.RecentAccounts2.BackColor = System.Drawing.Color.Transparent;
+            this.RecentAccounts2.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.RecentAccounts2.Location = new System.Drawing.Point(536, 178);
+            this.RecentAccounts2.Name = "RecentAccounts2";
+            this.RecentAccounts2.Size = new System.Drawing.Size(240, 23);
+            this.RecentAccounts2.TabIndex = 25;
+            this.RecentAccounts2.Text = "%placeholder%";
+            this.RecentAccounts2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecentAccounts2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.RecentAccounts2.UseSelectable = true;
+            this.RecentAccounts2.UseStyleColors = true;
+            this.RecentAccounts2.Visible = false;
+            this.RecentAccounts2.Click += new System.EventHandler(this.QuickSelectAccount);
             // 
-            // ToggleChatLog
+            // RecentAccounts1
             // 
-            this.ToggleChatLog.AutoSize = true;
-            this.ToggleChatLog.Checked = true;
-            this.ToggleChatLog.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ToggleChatLog.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ToggleChatLog.Location = new System.Drawing.Point(18, 14);
-            this.ToggleChatLog.Name = "ToggleChatLog";
-            this.ToggleChatLog.Size = new System.Drawing.Size(80, 17);
-            this.ToggleChatLog.TabIndex = 2;
-            this.ToggleChatLog.Text = "On";
-            this.ToggleChatLog.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.ToggleChatLog.UseCustomBackColor = true;
-            this.ToggleChatLog.UseSelectable = true;
-            this.ToggleChatLog.CheckedChanged += new System.EventHandler(this.ToggleChatLog_CheckedChanged);
+            this.RecentAccounts1.BackColor = System.Drawing.Color.Transparent;
+            this.RecentAccounts1.BackgroundImage = global::DSLauncherV2.Properties.Resources.placeholder;
+            this.RecentAccounts1.Location = new System.Drawing.Point(536, 158);
+            this.RecentAccounts1.Name = "RecentAccounts1";
+            this.RecentAccounts1.Size = new System.Drawing.Size(240, 23);
+            this.RecentAccounts1.TabIndex = 24;
+            this.RecentAccounts1.Text = "%placeholder%";
+            this.RecentAccounts1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RecentAccounts1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.RecentAccounts1.UseSelectable = true;
+            this.RecentAccounts1.UseStyleColors = true;
+            this.RecentAccounts1.Visible = false;
+            this.RecentAccounts1.Click += new System.EventHandler(this.QuickSelectAccount);
+            // 
+            // ImportLauncherFile
+            // 
+            this.ImportLauncherFile.FileName = "LauncherFile";
+            this.ImportLauncherFile.FileOk += new System.ComponentModel.CancelEventHandler(this.ImportLauncherFile_FileOk);
+            // 
+            // downloadProgress
+            // 
+            this.downloadProgress.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.downloadProgress.BackColor = System.Drawing.Color.Transparent;
+            this.downloadProgress.ForeColor = System.Drawing.SystemColors.Control;
+            this.downloadProgress.Location = new System.Drawing.Point(11, 426);
+            this.downloadProgress.Name = "downloadProgress";
+            this.downloadProgress.Size = new System.Drawing.Size(522, 19);
+            this.downloadProgress.TabIndex = 33;
+            this.downloadProgress.Text = "%DownloadProgress%";
+            this.downloadProgress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.downloadProgress.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.downloadProgress.Visible = false;
+            this.downloadProgress.TextChanged += new System.EventHandler(this.downloadProgress_TextChanged);
+            // 
+            // patchDownload
+            // 
+            this.patchDownload.Location = new System.Drawing.Point(11, 400);
+            this.patchDownload.Name = "patchDownload";
+            this.patchDownload.Size = new System.Drawing.Size(522, 23);
+            this.patchDownload.TabIndex = 32;
+            this.patchDownload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.patchDownload.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // launcherCheckerLabel
+            // 
+            this.launcherCheckerLabel.AutoSize = true;
+            this.launcherCheckerLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.launcherCheckerLabel.Location = new System.Drawing.Point(581, 403);
+            this.launcherCheckerLabel.Name = "launcherCheckerLabel";
+            this.launcherCheckerLabel.Size = new System.Drawing.Size(140, 19);
+            this.launcherCheckerLabel.TabIndex = 31;
+            this.launcherCheckerLabel.Text = "Checking for patches...";
+            this.launcherCheckerLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // launcherPatchSpinner
+            // 
+            this.launcherPatchSpinner.Location = new System.Drawing.Point(544, 398);
+            this.launcherPatchSpinner.Maximum = 100;
+            this.launcherPatchSpinner.Minimum = 30;
+            this.launcherPatchSpinner.Name = "launcherPatchSpinner";
+            this.launcherPatchSpinner.Size = new System.Drawing.Size(27, 27);
+            this.launcherPatchSpinner.Speed = 2F;
+            this.launcherPatchSpinner.TabIndex = 30;
+            this.launcherPatchSpinner.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.launcherPatchSpinner.UseSelectable = true;
+            this.launcherPatchSpinner.Value = 60;
+            // 
+            // accountsSearch
+            // 
+            // 
+            // 
+            // 
+            this.accountsSearch.CustomButton.Image = null;
+            this.accountsSearch.CustomButton.Location = new System.Drawing.Point(93, 1);
+            this.accountsSearch.CustomButton.Name = "";
+            this.accountsSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.accountsSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.accountsSearch.CustomButton.TabIndex = 1;
+            this.accountsSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.accountsSearch.CustomButton.UseSelectable = true;
+            this.accountsSearch.CustomButton.Visible = false;
+            this.accountsSearch.Lines = new string[0];
+            this.accountsSearch.Location = new System.Drawing.Point(538, 100);
+            this.accountsSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.accountsSearch.MaxLength = 32767;
+            this.accountsSearch.Name = "accountsSearch";
+            this.accountsSearch.PasswordChar = '\0';
+            this.accountsSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.accountsSearch.SelectedText = "";
+            this.accountsSearch.SelectionLength = 0;
+            this.accountsSearch.SelectionStart = 0;
+            this.accountsSearch.ShortcutsEnabled = true;
+            this.accountsSearch.Size = new System.Drawing.Size(115, 23);
+            this.accountsSearch.TabIndex = 45;
+            this.accountsSearch.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.accountsSearch.UseCustomBackColor = true;
+            this.accountsSearch.UseSelectable = true;
+            this.accountsSearch.Visible = false;
+            this.accountsSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.accountsSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.accountsSearch.TextChanged += new System.EventHandler(this.accountsSearch_TextChanged);
+            // 
+            // accountsSearchLabel
+            // 
+            this.accountsSearchLabel.AutoSize = true;
+            this.accountsSearchLabel.BackColor = System.Drawing.Color.Transparent;
+            this.accountsSearchLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.accountsSearchLabel.Location = new System.Drawing.Point(659, 102);
+            this.accountsSearchLabel.Name = "accountsSearchLabel";
+            this.accountsSearchLabel.Size = new System.Drawing.Size(104, 19);
+            this.accountsSearchLabel.TabIndex = 46;
+            this.accountsSearchLabel.Text = "Search Accounts";
+            this.accountsSearchLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.accountsSearchLabel.Visible = false;
+            // 
+            // OpenSortAccountWindow
+            // 
+            this.OpenSortAccountWindow.Location = new System.Drawing.Point(411, 372);
+            this.OpenSortAccountWindow.Name = "OpenSortAccountWindow";
+            this.OpenSortAccountWindow.Size = new System.Drawing.Size(115, 23);
+            this.OpenSortAccountWindow.TabIndex = 47;
+            this.OpenSortAccountWindow.Text = "Sort My Accounts";
+            this.OpenSortAccountWindow.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.OpenSortAccountWindow.UseSelectable = true;
+            this.OpenSortAccountWindow.UseStyleColors = true;
+            this.OpenSortAccountWindow.Visible = false;
+            this.OpenSortAccountWindow.Click += new System.EventHandler(this.OpenSortAccountWindow_Click);
+            // 
+            // About
+            // 
+            this.About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.About.Controls.Add(this.metroTile4);
+            this.About.Controls.Add(this.metroTile3);
+            this.About.Controls.Add(this.metroTile2);
+            this.About.Controls.Add(this.metroTile1);
+            this.About.Controls.Add(this.aboutInfo);
+            this.About.Controls.Add(this.metroLabel3);
+            this.About.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.About.HorizontalScrollbarBarColor = true;
+            this.About.HorizontalScrollbarHighlightOnWheel = false;
+            this.About.HorizontalScrollbarSize = 10;
+            this.About.Location = new System.Drawing.Point(4, 38);
+            this.About.Name = "About";
+            this.About.Size = new System.Drawing.Size(518, 325);
+            this.About.Style = MetroFramework.MetroColorStyle.Pink;
+            this.About.TabIndex = 3;
+            this.About.Text = "About";
+            this.About.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.About.UseCustomBackColor = true;
+            this.About.VerticalScrollbarBarColor = true;
+            this.About.VerticalScrollbarHighlightOnWheel = false;
+            this.About.VerticalScrollbarSize = 10;
+            // 
+            // metroTile4
+            // 
+            this.metroTile4.ActiveControl = null;
+            this.metroTile4.Enabled = false;
+            this.metroTile4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.metroTile4.Location = new System.Drawing.Point(30, 52);
+            this.metroTile4.Name = "metroTile4";
+            this.metroTile4.Size = new System.Drawing.Size(458, 10);
+            this.metroTile4.TabIndex = 21;
+            this.metroTile4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile4.UseCustomBackColor = true;
+            this.metroTile4.UseCustomForeColor = true;
+            this.metroTile4.UseSelectable = true;
+            // 
+            // metroTile3
+            // 
+            this.metroTile3.ActiveControl = null;
+            this.metroTile3.Enabled = false;
+            this.metroTile3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.metroTile3.Location = new System.Drawing.Point(485, 35);
+            this.metroTile3.Name = "metroTile3";
+            this.metroTile3.Size = new System.Drawing.Size(24, 251);
+            this.metroTile3.TabIndex = 20;
+            this.metroTile3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile3.UseCustomBackColor = true;
+            this.metroTile3.UseCustomForeColor = true;
+            this.metroTile3.UseSelectable = true;
+            // 
+            // metroTile2
+            // 
+            this.metroTile2.ActiveControl = null;
+            this.metroTile2.Enabled = false;
+            this.metroTile2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.metroTile2.Location = new System.Drawing.Point(29, 276);
+            this.metroTile2.Name = "metroTile2";
+            this.metroTile2.Size = new System.Drawing.Size(458, 10);
+            this.metroTile2.TabIndex = 19;
+            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile2.UseCustomBackColor = true;
+            this.metroTile2.UseCustomForeColor = true;
+            this.metroTile2.UseSelectable = true;
+            // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Enabled = false;
+            this.metroTile1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.metroTile1.Location = new System.Drawing.Point(6, 35);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(24, 251);
+            this.metroTile1.TabIndex = 18;
+            this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile1.UseCustomBackColor = true;
+            this.metroTile1.UseCustomForeColor = true;
+            this.metroTile1.UseSelectable = true;
+            // 
+            // aboutInfo
+            // 
+            // 
+            // 
+            // 
+            this.aboutInfo.CustomButton.Image = null;
+            this.aboutInfo.CustomButton.Location = new System.Drawing.Point(242, 1);
+            this.aboutInfo.CustomButton.Name = "";
+            this.aboutInfo.CustomButton.Size = new System.Drawing.Size(215, 215);
+            this.aboutInfo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.aboutInfo.CustomButton.TabIndex = 1;
+            this.aboutInfo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.aboutInfo.CustomButton.UseSelectable = true;
+            this.aboutInfo.CustomButton.Visible = false;
+            this.aboutInfo.Enabled = false;
+            this.aboutInfo.Lines = new string[0];
+            this.aboutInfo.Location = new System.Drawing.Point(29, 61);
+            this.aboutInfo.Margin = new System.Windows.Forms.Padding(0);
+            this.aboutInfo.MaxLength = 32767;
+            this.aboutInfo.Multiline = true;
+            this.aboutInfo.Name = "aboutInfo";
+            this.aboutInfo.PasswordChar = '\0';
+            this.aboutInfo.PromptText = "A Vanilla Server for Microsoft\'s Freelancer.";
+            this.aboutInfo.ReadOnly = true;
+            this.aboutInfo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.aboutInfo.SelectedText = "";
+            this.aboutInfo.SelectionLength = 0;
+            this.aboutInfo.SelectionStart = 0;
+            this.aboutInfo.ShortcutsEnabled = true;
+            this.aboutInfo.Size = new System.Drawing.Size(458, 217);
+            this.aboutInfo.Style = MetroFramework.MetroColorStyle.Blue;
+            this.aboutInfo.TabIndex = 17;
+            this.aboutInfo.TabStop = false;
+            this.aboutInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.aboutInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.aboutInfo.UseCustomBackColor = true;
+            this.aboutInfo.UseSelectable = true;
+            this.aboutInfo.WaterMark = "A Vanilla Server for Microsoft\'s Freelancer.";
+            this.aboutInfo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.aboutInfo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Enabled = false;
+            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel3.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.metroLabel3.Location = new System.Drawing.Point(165, 8);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(227, 25);
+            this.metroLabel3.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroLabel3.TabIndex = 16;
+            this.metroLabel3.Text = "About 24/7 Zoner Universe";
+            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseCustomForeColor = true;
+            this.metroLabel3.UseStyleColors = true;
+            // 
+            // Accounts
+            // 
+            this.Accounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.Accounts.Controls.Add(this.AccountsGrid);
+            this.Accounts.Controls.Add(this.AccountCategoryTabControl);
+            this.Accounts.HorizontalScrollbarBarColor = true;
+            this.Accounts.HorizontalScrollbarHighlightOnWheel = false;
+            this.Accounts.HorizontalScrollbarSize = 10;
+            this.Accounts.Location = new System.Drawing.Point(4, 38);
+            this.Accounts.Name = "Accounts";
+            this.Accounts.Size = new System.Drawing.Size(518, 325);
+            this.Accounts.TabIndex = 1;
+            this.Accounts.Text = "Accounts";
+            this.Accounts.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.Accounts.UseCustomBackColor = true;
+            this.Accounts.VerticalScrollbarBarColor = true;
+            this.Accounts.VerticalScrollbarHighlightOnWheel = false;
+            this.Accounts.VerticalScrollbarSize = 10;
+            // 
+            // AccountsGrid
+            // 
+            this.AccountsGrid.AllowDrop = true;
+            this.AccountsGrid.AllowUserToAddRows = false;
+            this.AccountsGrid.AllowUserToDeleteRows = false;
+            this.AccountsGrid.AllowUserToOrderColumns = true;
+            this.AccountsGrid.AllowUserToResizeRows = false;
+            this.AccountsGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AccountsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AccountsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.AccountsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AccountsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.AccountsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AccountsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AccName,
+            this.AccDescription,
+            this.AccCategory,
+            this.AccIsFav,
+            this.AccCode,
+            this.AccSignature});
+            this.AccountsGrid.ContextMenuStrip = this.AccountContextMenu;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AccountsGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.AccountsGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.AccountsGrid.EnableHeadersVisualStyles = false;
+            this.AccountsGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AccountsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AccountsGrid.Location = new System.Drawing.Point(0, 33);
+            this.AccountsGrid.Name = "AccountsGrid";
+            this.AccountsGrid.ReadOnly = true;
+            this.AccountsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AccountsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.AccountsGrid.RowHeadersVisible = false;
+            this.AccountsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.AccountsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.AccountsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.AccountsGrid.Size = new System.Drawing.Size(518, 291);
+            this.AccountsGrid.StandardTab = true;
+            this.AccountsGrid.TabIndex = 7;
+            this.AccountsGrid.UseStyleColors = true;
+            this.AccountsGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AccountsGrid_MouseDoubleClick);
+            // 
+            // AccName
+            // 
+            this.AccName.HeaderText = "Name";
+            this.AccName.Name = "AccName";
+            this.AccName.ReadOnly = true;
+            this.AccName.Width = 140;
+            // 
+            // AccDescription
+            // 
+            this.AccDescription.HeaderText = "Description";
+            this.AccDescription.Name = "AccDescription";
+            this.AccDescription.ReadOnly = true;
+            this.AccDescription.Width = 140;
+            // 
+            // AccCategory
+            // 
+            this.AccCategory.HeaderText = "Category";
+            this.AccCategory.Name = "AccCategory";
+            this.AccCategory.ReadOnly = true;
+            this.AccCategory.Width = 120;
+            // 
+            // AccIsFav
+            // 
+            this.AccIsFav.HeaderText = "Favourite";
+            this.AccIsFav.Name = "AccIsFav";
+            this.AccIsFav.ReadOnly = true;
+            this.AccIsFav.Width = 118;
+            // 
+            // AccCode
+            // 
+            this.AccCode.HeaderText = "AccCode";
+            this.AccCode.Name = "AccCode";
+            this.AccCode.ReadOnly = true;
+            this.AccCode.Visible = false;
+            // 
+            // AccSignature
+            // 
+            this.AccSignature.HeaderText = "AccSignature";
+            this.AccSignature.Name = "AccSignature";
+            this.AccSignature.ReadOnly = true;
+            this.AccSignature.Visible = false;
+            // 
+            // AccountCategoryTabControl
+            // 
+            this.AccountCategoryTabControl.Controls.Add(this.unfilteredTab);
+            this.AccountCategoryTabControl.Location = new System.Drawing.Point(-5, -8);
+            this.AccountCategoryTabControl.Name = "AccountCategoryTabControl";
+            this.AccountCategoryTabControl.SelectedIndex = 0;
+            this.AccountCategoryTabControl.Size = new System.Drawing.Size(527, 46);
+            this.AccountCategoryTabControl.TabIndex = 8;
+            this.AccountCategoryTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.AccountCategoryTabControl.UseSelectable = true;
+            this.AccountCategoryTabControl.UseStyleColors = true;
+            this.AccountCategoryTabControl.SelectedIndexChanged += new System.EventHandler(this.AccountCategoryTabControl_SelectedIndexChanged);
+            // 
+            // unfilteredTab
+            // 
+            this.unfilteredTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.unfilteredTab.Location = new System.Drawing.Point(4, 38);
+            this.unfilteredTab.Name = "unfilteredTab";
+            this.unfilteredTab.Size = new System.Drawing.Size(519, 4);
+            this.unfilteredTab.TabIndex = 0;
+            this.unfilteredTab.Text = "Unfiltered";
             // 
             // GameSettings
             // 
@@ -613,6 +960,31 @@ namespace DSLauncherV2
             this.GameSettings.VerticalScrollbarBarColor = true;
             this.GameSettings.VerticalScrollbarHighlightOnWheel = false;
             this.GameSettings.VerticalScrollbarSize = 10;
+            // 
+            // HDGraphicsLabel
+            // 
+            this.HDGraphicsLabel.AutoSize = true;
+            this.HDGraphicsLabel.Location = new System.Drawing.Point(410, 15);
+            this.HDGraphicsLabel.Name = "HDGraphicsLabel";
+            this.HDGraphicsLabel.Size = new System.Drawing.Size(81, 19);
+            this.HDGraphicsLabel.TabIndex = 58;
+            this.HDGraphicsLabel.Text = "HD Graphics";
+            this.HDGraphicsLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.HDGraphicsLabel.UseCustomBackColor = true;
+            // 
+            // HDGraphics
+            // 
+            this.HDGraphics.AutoSize = true;
+            this.HDGraphics.Cursor = System.Windows.Forms.Cursors.Default;
+            this.HDGraphics.Enabled = false;
+            this.HDGraphics.Location = new System.Drawing.Point(324, 15);
+            this.HDGraphics.Name = "HDGraphics";
+            this.HDGraphics.Size = new System.Drawing.Size(80, 17);
+            this.HDGraphics.TabIndex = 57;
+            this.HDGraphics.Text = "Off";
+            this.HDGraphics.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.HDGraphics.UseCustomBackColor = true;
+            this.HDGraphics.UseSelectable = true;
             // 
             // NumericDamageLabel
             // 
@@ -1027,684 +1399,350 @@ namespace DSLauncherV2
             this.ToggleFlightText.UseSelectable = true;
             this.ToggleFlightText.CheckedChanged += new System.EventHandler(this.ToggleFlightText_CheckedChanged);
             // 
-            // Accounts
-            // 
-            this.Accounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.Accounts.Controls.Add(this.AccountsGrid);
-            this.Accounts.Controls.Add(this.AccountCategoryTabControl);
-            this.Accounts.HorizontalScrollbarBarColor = true;
-            this.Accounts.HorizontalScrollbarHighlightOnWheel = false;
-            this.Accounts.HorizontalScrollbarSize = 10;
-            this.Accounts.Location = new System.Drawing.Point(4, 38);
-            this.Accounts.Name = "Accounts";
-            this.Accounts.Size = new System.Drawing.Size(518, 325);
-            this.Accounts.TabIndex = 1;
-            this.Accounts.Text = "Accounts";
-            this.Accounts.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.Accounts.UseCustomBackColor = true;
-            this.Accounts.VerticalScrollbarBarColor = true;
-            this.Accounts.VerticalScrollbarHighlightOnWheel = false;
-            this.Accounts.VerticalScrollbarSize = 10;
-            // 
-            // AccountsGrid
-            // 
-            this.AccountsGrid.AllowDrop = true;
-            this.AccountsGrid.AllowUserToAddRows = false;
-            this.AccountsGrid.AllowUserToDeleteRows = false;
-            this.AccountsGrid.AllowUserToOrderColumns = true;
-            this.AccountsGrid.AllowUserToResizeRows = false;
-            this.AccountsGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.AccountsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AccountsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.AccountsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AccountsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.AccountsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AccountsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AccName,
-            this.AccDescription,
-            this.AccCategory,
-            this.AccIsFav,
-            this.AccCode,
-            this.AccSignature});
-            this.AccountsGrid.ContextMenuStrip = this.AccountContextMenu;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AccountsGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.AccountsGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.AccountsGrid.EnableHeadersVisualStyles = false;
-            this.AccountsGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AccountsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.AccountsGrid.Location = new System.Drawing.Point(0, 33);
-            this.AccountsGrid.Name = "AccountsGrid";
-            this.AccountsGrid.ReadOnly = true;
-            this.AccountsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AccountsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.AccountsGrid.RowHeadersVisible = false;
-            this.AccountsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.AccountsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AccountsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AccountsGrid.Size = new System.Drawing.Size(518, 291);
-            this.AccountsGrid.StandardTab = true;
-            this.AccountsGrid.TabIndex = 7;
-            this.AccountsGrid.UseStyleColors = true;
-            this.AccountsGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.AccountsGrid_MouseDoubleClick);
-            // 
-            // AccName
-            // 
-            this.AccName.HeaderText = "Name";
-            this.AccName.Name = "AccName";
-            this.AccName.ReadOnly = true;
-            this.AccName.Width = 140;
-            // 
-            // AccDescription
-            // 
-            this.AccDescription.HeaderText = "Description";
-            this.AccDescription.Name = "AccDescription";
-            this.AccDescription.ReadOnly = true;
-            this.AccDescription.Width = 140;
-            // 
-            // AccCategory
-            // 
-            this.AccCategory.HeaderText = "Category";
-            this.AccCategory.Name = "AccCategory";
-            this.AccCategory.ReadOnly = true;
-            this.AccCategory.Width = 120;
-            // 
-            // AccIsFav
-            // 
-            this.AccIsFav.HeaderText = "Favourite";
-            this.AccIsFav.Name = "AccIsFav";
-            this.AccIsFav.ReadOnly = true;
-            this.AccIsFav.Width = 118;
-            // 
-            // AccCode
-            // 
-            this.AccCode.HeaderText = "AccCode";
-            this.AccCode.Name = "AccCode";
-            this.AccCode.ReadOnly = true;
-            this.AccCode.Visible = false;
-            // 
-            // AccSignature
-            // 
-            this.AccSignature.HeaderText = "AccSignature";
-            this.AccSignature.Name = "AccSignature";
-            this.AccSignature.ReadOnly = true;
-            this.AccSignature.Visible = false;
-            // 
-            // AccountContextMenu
-            // 
-            this.AccountContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.AccountContextMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.AccountContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bulkSetCategoryToolStripMenuItem,
-            this.CreateNewAccount,
-            this.DeleteSelectedAccounts,
-            this.ExportAccounts,
-            this.EditAccount,
-            this.MarkFavorite,
-            this.importLauncherAccountsToolStripMenuItem});
-            this.AccountContextMenu.Name = "metroContextMenu1";
-            this.AccountContextMenu.Size = new System.Drawing.Size(216, 158);
-            this.AccountContextMenu.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.AccountContextMenu.UseStyleColors = true;
-            // 
-            // bulkSetCategoryToolStripMenuItem
-            // 
-            this.bulkSetCategoryToolStripMenuItem.Name = "bulkSetCategoryToolStripMenuItem";
-            this.bulkSetCategoryToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.bulkSetCategoryToolStripMenuItem.Text = "Bulk Set Category";
-            this.bulkSetCategoryToolStripMenuItem.Click += new System.EventHandler(this.SetSelectedAccountsCategory);
-            // 
-            // CreateNewAccount
-            // 
-            this.CreateNewAccount.Name = "CreateNewAccount";
-            this.CreateNewAccount.Size = new System.Drawing.Size(215, 22);
-            this.CreateNewAccount.Text = "Create New Accounts";
-            this.CreateNewAccount.Click += new System.EventHandler(this.CreateNewAccount_Click);
-            // 
-            // DeleteSelectedAccounts
-            // 
-            this.DeleteSelectedAccounts.Name = "DeleteSelectedAccounts";
-            this.DeleteSelectedAccounts.Size = new System.Drawing.Size(215, 22);
-            this.DeleteSelectedAccounts.Text = "Delete Selected Accounts";
-            this.DeleteSelectedAccounts.Click += new System.EventHandler(this.DeleteSelectedAccounts_Click);
-            // 
-            // ExportAccounts
-            // 
-            this.ExportAccounts.Name = "ExportAccounts";
-            this.ExportAccounts.Size = new System.Drawing.Size(215, 22);
-            this.ExportAccounts.Text = "Export Selected Accounts";
-            this.ExportAccounts.Click += new System.EventHandler(this.ExportAccounts_Click);
-            // 
-            // EditAccount
-            // 
-            this.EditAccount.Name = "EditAccount";
-            this.EditAccount.Size = new System.Drawing.Size(215, 22);
-            this.EditAccount.Text = "Edit Selected Accounts";
-            this.EditAccount.Click += new System.EventHandler(this.EditAccount_Click);
-            // 
-            // MarkFavorite
-            // 
-            this.MarkFavorite.Name = "MarkFavorite";
-            this.MarkFavorite.Size = new System.Drawing.Size(215, 22);
-            this.MarkFavorite.Text = "Mark/Unmark Favorite";
-            this.MarkFavorite.Click += new System.EventHandler(this.MarkFavorite_Click);
-            // 
-            // importLauncherAccountsToolStripMenuItem
-            // 
-            this.importLauncherAccountsToolStripMenuItem.Name = "importLauncherAccountsToolStripMenuItem";
-            this.importLauncherAccountsToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.importLauncherAccountsToolStripMenuItem.Text = "Import Launcher Accounts";
-            this.importLauncherAccountsToolStripMenuItem.Click += new System.EventHandler(this.importLauncherAccountsToolStripMenuItem_Click);
-            // 
-            // AccountCategoryTabControl
-            // 
-            this.AccountCategoryTabControl.Controls.Add(this.unfilteredTab);
-            this.AccountCategoryTabControl.Location = new System.Drawing.Point(-5, -8);
-            this.AccountCategoryTabControl.Name = "AccountCategoryTabControl";
-            this.AccountCategoryTabControl.SelectedIndex = 0;
-            this.AccountCategoryTabControl.Size = new System.Drawing.Size(527, 46);
-            this.AccountCategoryTabControl.TabIndex = 8;
-            this.AccountCategoryTabControl.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.AccountCategoryTabControl.UseSelectable = true;
-            this.AccountCategoryTabControl.UseStyleColors = true;
-            this.AccountCategoryTabControl.SelectedIndexChanged += new System.EventHandler(this.AccountCategoryTabControl_SelectedIndexChanged);
-            // 
-            // unfilteredTab
-            // 
-            this.unfilteredTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.unfilteredTab.Location = new System.Drawing.Point(4, 38);
-            this.unfilteredTab.Name = "unfilteredTab";
-            this.unfilteredTab.Size = new System.Drawing.Size(519, 4);
-            this.unfilteredTab.TabIndex = 0;
-            this.unfilteredTab.Text = "Unfiltered";
-            // 
-            // About
-            // 
-            this.About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.About.Controls.Add(this.metroTile4);
-            this.About.Controls.Add(this.metroTile3);
-            this.About.Controls.Add(this.metroTile2);
-            this.About.Controls.Add(this.metroTile1);
-            this.About.Controls.Add(this.aboutInfo);
-            this.About.Controls.Add(this.metroLabel3);
-            this.About.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.About.HorizontalScrollbarBarColor = true;
-            this.About.HorizontalScrollbarHighlightOnWheel = false;
-            this.About.HorizontalScrollbarSize = 10;
-            this.About.Location = new System.Drawing.Point(4, 38);
-            this.About.Name = "About";
-            this.About.Size = new System.Drawing.Size(518, 325);
-            this.About.Style = MetroFramework.MetroColorStyle.Pink;
-            this.About.TabIndex = 3;
-            this.About.Text = "About";
-            this.About.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.About.UseCustomBackColor = true;
-            this.About.VerticalScrollbarBarColor = true;
-            this.About.VerticalScrollbarHighlightOnWheel = false;
-            this.About.VerticalScrollbarSize = 10;
-            // 
-            // metroTile4
-            // 
-            this.metroTile4.ActiveControl = null;
-            this.metroTile4.Enabled = false;
-            this.metroTile4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.metroTile4.Location = new System.Drawing.Point(30, 52);
-            this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(458, 10);
-            this.metroTile4.TabIndex = 21;
-            this.metroTile4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile4.UseCustomBackColor = true;
-            this.metroTile4.UseCustomForeColor = true;
-            this.metroTile4.UseSelectable = true;
-            // 
-            // metroTile3
-            // 
-            this.metroTile3.ActiveControl = null;
-            this.metroTile3.Enabled = false;
-            this.metroTile3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.metroTile3.Location = new System.Drawing.Point(485, 35);
-            this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(24, 251);
-            this.metroTile3.TabIndex = 20;
-            this.metroTile3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile3.UseCustomBackColor = true;
-            this.metroTile3.UseCustomForeColor = true;
-            this.metroTile3.UseSelectable = true;
-            // 
-            // metroTile2
-            // 
-            this.metroTile2.ActiveControl = null;
-            this.metroTile2.Enabled = false;
-            this.metroTile2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.metroTile2.Location = new System.Drawing.Point(29, 276);
-            this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(458, 10);
-            this.metroTile2.TabIndex = 19;
-            this.metroTile2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile2.UseCustomBackColor = true;
-            this.metroTile2.UseCustomForeColor = true;
-            this.metroTile2.UseSelectable = true;
-            // 
-            // metroTile1
-            // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Enabled = false;
-            this.metroTile1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.metroTile1.Location = new System.Drawing.Point(6, 35);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(24, 251);
-            this.metroTile1.TabIndex = 18;
-            this.metroTile1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile1.UseCustomBackColor = true;
-            this.metroTile1.UseCustomForeColor = true;
-            this.metroTile1.UseSelectable = true;
-            // 
-            // aboutInfo
-            // 
-            // 
-            // 
-            // 
-            this.aboutInfo.CustomButton.Image = null;
-            this.aboutInfo.CustomButton.Location = new System.Drawing.Point(242, 1);
-            this.aboutInfo.CustomButton.Name = "";
-            this.aboutInfo.CustomButton.Size = new System.Drawing.Size(215, 215);
-            this.aboutInfo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.aboutInfo.CustomButton.TabIndex = 1;
-            this.aboutInfo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.aboutInfo.CustomButton.UseSelectable = true;
-            this.aboutInfo.CustomButton.Visible = false;
-            this.aboutInfo.Enabled = false;
-            this.aboutInfo.Lines = new string[0];
-            this.aboutInfo.Location = new System.Drawing.Point(29, 61);
-            this.aboutInfo.Margin = new System.Windows.Forms.Padding(0);
-            this.aboutInfo.MaxLength = 32767;
-            this.aboutInfo.Multiline = true;
-            this.aboutInfo.Name = "aboutInfo";
-            this.aboutInfo.PasswordChar = '\0';
-            this.aboutInfo.PromptText = "A Vanilla Server for Microsoft\'s Freelancer.";
-            this.aboutInfo.ReadOnly = true;
-            this.aboutInfo.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.aboutInfo.SelectedText = "";
-            this.aboutInfo.SelectionLength = 0;
-            this.aboutInfo.SelectionStart = 0;
-            this.aboutInfo.ShortcutsEnabled = true;
-            this.aboutInfo.Size = new System.Drawing.Size(458, 217);
-            this.aboutInfo.Style = MetroFramework.MetroColorStyle.Blue;
-            this.aboutInfo.TabIndex = 17;
-            this.aboutInfo.TabStop = false;
-            this.aboutInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.aboutInfo.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.aboutInfo.UseCustomBackColor = true;
-            this.aboutInfo.UseSelectable = true;
-            this.aboutInfo.WaterMark = "A Vanilla Server for Microsoft\'s Freelancer.";
-            this.aboutInfo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.aboutInfo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Enabled = false;
-            this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.metroLabel3.Location = new System.Drawing.Point(165, 8);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(227, 25);
-            this.metroLabel3.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroLabel3.TabIndex = 16;
-            this.metroLabel3.Text = "About 24/7 Zoner Universe";
-            this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel3.UseCustomBackColor = true;
-            this.metroLabel3.UseCustomForeColor = true;
-            this.metroLabel3.UseStyleColors = true;
-            // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = this;
-            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // LoadingBackgroundWorker
-            // 
-            this.LoadingBackgroundWorker.WorkerReportsProgress = true;
-            this.LoadingBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.LoadingBackgroundWorker_DoWork);
-            this.LoadingBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.LoadingBackgroundWorker_ProgressChanged);
-            this.LoadingBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.LoadingBackgroundWorker_RunWorkerCompleted);
-            // 
-            // launchGame
-            // 
-            this.launchGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.launchGame.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.launchGame.Enabled = false;
-            this.launchGame.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.launchGame.Location = new System.Drawing.Point(536, 44);
-            this.launchGame.Name = "launchGame";
-            this.launchGame.Size = new System.Drawing.Size(203, 29);
-            this.launchGame.Style = MetroFramework.MetroColorStyle.Blue;
-            this.launchGame.TabIndex = 12;
-            this.launchGame.Text = "&Launch Game";
-            this.launchGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.launchGame.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.launchGame.UseSelectable = true;
-            this.launchGame.Click += new System.EventHandler(this.launchGame_Click);
-            this.launchGame.MouseEnter += new System.EventHandler(this.launchGame_MouseEnter);
-            this.launchGame.MouseLeave += new System.EventHandler(this.launchGame_MouseLeave);
-            // 
-            // patchGame
-            // 
-            this.patchGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.patchGame.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.patchGame.Enabled = false;
-            this.patchGame.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.patchGame.Location = new System.Drawing.Point(536, 68);
-            this.patchGame.Name = "patchGame";
-            this.patchGame.Size = new System.Drawing.Size(203, 29);
-            this.patchGame.Style = MetroFramework.MetroColorStyle.Blue;
-            this.patchGame.TabIndex = 13;
-            this.patchGame.Text = "&Patch Game";
-            this.patchGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.patchGame.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.patchGame.UseSelectable = true;
-            this.patchGame.Click += new System.EventHandler(this.patchGame_Click);
-            this.patchGame.MouseEnter += new System.EventHandler(this.patchGame_MouseEnter);
-            this.patchGame.MouseLeave += new System.EventHandler(this.patchGame_MouseLeave);
-            // 
-            // ExportAccountSaveFileDialog
-            // 
-            this.ExportAccountSaveFileDialog.CreatePrompt = true;
-            this.ExportAccountSaveFileDialog.DefaultExt = "xml";
-            this.ExportAccountSaveFileDialog.FileName = "Launcher Accounts";
-            this.ExportAccountSaveFileDialog.Filter = "XML File|*.xml";
-            this.ExportAccountSaveFileDialog.Title = "Save File As...";
-            this.ExportAccountSaveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.ExportAccountSaveFileDialog_FileOk);
-            // 
-            // CurrentSelectedAccountLabel
-            // 
-            this.CurrentSelectedAccountLabel.AutoSize = true;
-            this.CurrentSelectedAccountLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.CurrentSelectedAccountLabel.Location = new System.Drawing.Point(121, 372);
-            this.CurrentSelectedAccountLabel.Name = "CurrentSelectedAccountLabel";
-            this.CurrentSelectedAccountLabel.Size = new System.Drawing.Size(181, 19);
-            this.CurrentSelectedAccountLabel.TabIndex = 19;
-            this.CurrentSelectedAccountLabel.Text = "No account currently selected";
-            this.CurrentSelectedAccountLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.CurrentSelectedAccountLabel.UseCustomForeColor = true;
-            // 
-            // FavAccount1
-            // 
-            this.FavAccount1.Location = new System.Drawing.Point(536, 280);
-            this.FavAccount1.Name = "FavAccount1";
-            this.FavAccount1.Size = new System.Drawing.Size(240, 23);
-            this.FavAccount1.TabIndex = 20;
-            this.FavAccount1.Text = "%placeholder%";
-            this.FavAccount1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FavAccount1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.FavAccount1.UseSelectable = true;
-            this.FavAccount1.UseStyleColors = true;
-            this.FavAccount1.Visible = false;
-            this.FavAccount1.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // FavAccount2
-            // 
-            this.FavAccount2.Location = new System.Drawing.Point(536, 300);
-            this.FavAccount2.Name = "FavAccount2";
-            this.FavAccount2.Size = new System.Drawing.Size(240, 23);
-            this.FavAccount2.TabIndex = 21;
-            this.FavAccount2.Text = "%placeholder%";
-            this.FavAccount2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FavAccount2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.FavAccount2.UseSelectable = true;
-            this.FavAccount2.UseStyleColors = true;
-            this.FavAccount2.Visible = false;
-            this.FavAccount2.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // FavAccount3
-            // 
-            this.FavAccount3.Location = new System.Drawing.Point(536, 320);
-            this.FavAccount3.Name = "FavAccount3";
-            this.FavAccount3.Size = new System.Drawing.Size(240, 23);
-            this.FavAccount3.TabIndex = 22;
-            this.FavAccount3.Text = "%placeholder%";
-            this.FavAccount3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FavAccount3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.FavAccount3.UseSelectable = true;
-            this.FavAccount3.UseStyleColors = true;
-            this.FavAccount3.Visible = false;
-            this.FavAccount3.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // FavAccount4
-            // 
-            this.FavAccount4.Location = new System.Drawing.Point(536, 340);
-            this.FavAccount4.Name = "FavAccount4";
-            this.FavAccount4.Size = new System.Drawing.Size(240, 23);
-            this.FavAccount4.TabIndex = 23;
-            this.FavAccount4.Text = "%placeholder%";
-            this.FavAccount4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FavAccount4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.FavAccount4.UseSelectable = true;
-            this.FavAccount4.UseStyleColors = true;
-            this.FavAccount4.Visible = false;
-            this.FavAccount4.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // RecentAccounts4
-            // 
-            this.RecentAccounts4.Location = new System.Drawing.Point(536, 218);
-            this.RecentAccounts4.Name = "RecentAccounts4";
-            this.RecentAccounts4.Size = new System.Drawing.Size(240, 23);
-            this.RecentAccounts4.TabIndex = 27;
-            this.RecentAccounts4.Text = "%placeholder%";
-            this.RecentAccounts4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecentAccounts4.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.RecentAccounts4.UseSelectable = true;
-            this.RecentAccounts4.UseStyleColors = true;
-            this.RecentAccounts4.Visible = false;
-            this.RecentAccounts4.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // RecentAccounts3
-            // 
-            this.RecentAccounts3.Location = new System.Drawing.Point(536, 198);
-            this.RecentAccounts3.Name = "RecentAccounts3";
-            this.RecentAccounts3.Size = new System.Drawing.Size(240, 23);
-            this.RecentAccounts3.TabIndex = 26;
-            this.RecentAccounts3.Text = "%placeholder%";
-            this.RecentAccounts3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecentAccounts3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.RecentAccounts3.UseSelectable = true;
-            this.RecentAccounts3.UseStyleColors = true;
-            this.RecentAccounts3.Visible = false;
-            this.RecentAccounts3.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // RecentAccounts2
-            // 
-            this.RecentAccounts2.Location = new System.Drawing.Point(536, 178);
-            this.RecentAccounts2.Name = "RecentAccounts2";
-            this.RecentAccounts2.Size = new System.Drawing.Size(240, 23);
-            this.RecentAccounts2.TabIndex = 25;
-            this.RecentAccounts2.Text = "%placeholder%";
-            this.RecentAccounts2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecentAccounts2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.RecentAccounts2.UseSelectable = true;
-            this.RecentAccounts2.UseStyleColors = true;
-            this.RecentAccounts2.Visible = false;
-            this.RecentAccounts2.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // RecentAccounts1
-            // 
-            this.RecentAccounts1.Location = new System.Drawing.Point(536, 158);
-            this.RecentAccounts1.Name = "RecentAccounts1";
-            this.RecentAccounts1.Size = new System.Drawing.Size(240, 23);
-            this.RecentAccounts1.TabIndex = 24;
-            this.RecentAccounts1.Text = "%placeholder%";
-            this.RecentAccounts1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RecentAccounts1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.RecentAccounts1.UseSelectable = true;
-            this.RecentAccounts1.UseStyleColors = true;
-            this.RecentAccounts1.Visible = false;
-            this.RecentAccounts1.Click += new System.EventHandler(this.QuickSelectAccount);
-            // 
-            // ImportLauncherFile
-            // 
-            this.ImportLauncherFile.FileName = "LauncherFile";
-            this.ImportLauncherFile.FileOk += new System.ComponentModel.CancelEventHandler(this.ImportLauncherFile_FileOk);
-            // 
-            // downloadProgress
-            // 
-            this.downloadProgress.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.downloadProgress.ForeColor = System.Drawing.SystemColors.Control;
-            this.downloadProgress.Location = new System.Drawing.Point(11, 426);
-            this.downloadProgress.Name = "downloadProgress";
-            this.downloadProgress.Size = new System.Drawing.Size(522, 19);
-            this.downloadProgress.TabIndex = 33;
-            this.downloadProgress.Text = "%DownloadProgress%";
-            this.downloadProgress.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.downloadProgress.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.downloadProgress.Visible = false;
-            this.downloadProgress.TextChanged += new System.EventHandler(this.downloadProgress_TextChanged);
-            // 
-            // patchDownload
-            // 
-            this.patchDownload.Location = new System.Drawing.Point(11, 400);
-            this.patchDownload.Name = "patchDownload";
-            this.patchDownload.Size = new System.Drawing.Size(522, 23);
-            this.patchDownload.TabIndex = 32;
-            this.patchDownload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.patchDownload.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // launcherCheckerLabel
-            // 
-            this.launcherCheckerLabel.AutoSize = true;
-            this.launcherCheckerLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.launcherCheckerLabel.Location = new System.Drawing.Point(581, 403);
-            this.launcherCheckerLabel.Name = "launcherCheckerLabel";
-            this.launcherCheckerLabel.Size = new System.Drawing.Size(140, 19);
-            this.launcherCheckerLabel.TabIndex = 31;
-            this.launcherCheckerLabel.Text = "Checking for patches...";
-            this.launcherCheckerLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
-            // 
-            // launcherPatchSpinner
-            // 
-            this.launcherPatchSpinner.Location = new System.Drawing.Point(544, 398);
-            this.launcherPatchSpinner.Maximum = 100;
-            this.launcherPatchSpinner.Minimum = 30;
-            this.launcherPatchSpinner.Name = "launcherPatchSpinner";
-            this.launcherPatchSpinner.Size = new System.Drawing.Size(27, 27);
-            this.launcherPatchSpinner.Speed = 2F;
-            this.launcherPatchSpinner.TabIndex = 30;
-            this.launcherPatchSpinner.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.launcherPatchSpinner.UseSelectable = true;
-            this.launcherPatchSpinner.Value = 60;
-            // 
-            // accountsSearch
-            // 
-            // 
-            // 
-            // 
-            this.accountsSearch.CustomButton.Image = null;
-            this.accountsSearch.CustomButton.Location = new System.Drawing.Point(93, 1);
-            this.accountsSearch.CustomButton.Name = "";
-            this.accountsSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.accountsSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.accountsSearch.CustomButton.TabIndex = 1;
-            this.accountsSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.accountsSearch.CustomButton.UseSelectable = true;
-            this.accountsSearch.CustomButton.Visible = false;
-            this.accountsSearch.Lines = new string[0];
-            this.accountsSearch.Location = new System.Drawing.Point(538, 100);
-            this.accountsSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.accountsSearch.MaxLength = 32767;
-            this.accountsSearch.Name = "accountsSearch";
-            this.accountsSearch.PasswordChar = '\0';
-            this.accountsSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.accountsSearch.SelectedText = "";
-            this.accountsSearch.SelectionLength = 0;
-            this.accountsSearch.SelectionStart = 0;
-            this.accountsSearch.ShortcutsEnabled = true;
-            this.accountsSearch.Size = new System.Drawing.Size(115, 23);
-            this.accountsSearch.TabIndex = 45;
-            this.accountsSearch.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.accountsSearch.UseCustomBackColor = true;
-            this.accountsSearch.UseSelectable = true;
-            this.accountsSearch.Visible = false;
-            this.accountsSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.accountsSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.accountsSearch.TextChanged += new System.EventHandler(this.accountsSearch_TextChanged);
-            // 
-            // accountsSearchLabel
-            // 
-            this.accountsSearchLabel.AutoSize = true;
-            this.accountsSearchLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.accountsSearchLabel.Location = new System.Drawing.Point(659, 102);
-            this.accountsSearchLabel.Name = "accountsSearchLabel";
-            this.accountsSearchLabel.Size = new System.Drawing.Size(104, 19);
-            this.accountsSearchLabel.TabIndex = 46;
-            this.accountsSearchLabel.Text = "Search Accounts";
-            this.accountsSearchLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.accountsSearchLabel.Visible = false;
-            // 
-            // OpenSortAccountWindow
-            // 
-            this.OpenSortAccountWindow.Location = new System.Drawing.Point(411, 372);
-            this.OpenSortAccountWindow.Name = "OpenSortAccountWindow";
-            this.OpenSortAccountWindow.Size = new System.Drawing.Size(115, 23);
-            this.OpenSortAccountWindow.TabIndex = 47;
-            this.OpenSortAccountWindow.Text = "Sort My Accounts";
-            this.OpenSortAccountWindow.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.OpenSortAccountWindow.UseSelectable = true;
-            this.OpenSortAccountWindow.UseStyleColors = true;
-            this.OpenSortAccountWindow.Visible = false;
-            this.OpenSortAccountWindow.Click += new System.EventHandler(this.OpenSortAccountWindow_Click);
-            // 
-            // HDGraphics
-            // 
-            this.HDGraphics.AutoSize = true;
-            this.HDGraphics.Cursor = System.Windows.Forms.Cursors.Default;
-            this.HDGraphics.Enabled = false;
-            this.HDGraphics.Location = new System.Drawing.Point(324, 15);
-            this.HDGraphics.Name = "HDGraphics";
-            this.HDGraphics.Size = new System.Drawing.Size(80, 17);
-            this.HDGraphics.TabIndex = 57;
-            this.HDGraphics.Text = "Off";
-            this.HDGraphics.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.HDGraphics.UseCustomBackColor = true;
-            this.HDGraphics.UseSelectable = true;
-            // 
-            // HDGraphicsLabel
-            // 
-            this.HDGraphicsLabel.AutoSize = true;
-            this.HDGraphicsLabel.Location = new System.Drawing.Point(410, 15);
-            this.HDGraphicsLabel.Name = "HDGraphicsLabel";
-            this.HDGraphicsLabel.Size = new System.Drawing.Size(81, 19);
-            this.HDGraphicsLabel.TabIndex = 58;
-            this.HDGraphicsLabel.Text = "HD Graphics";
-            this.HDGraphicsLabel.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.HDGraphicsLabel.UseCustomBackColor = true;
+            // ExternalSettings
+            // 
+            this.ExternalSettings.BackColor = System.Drawing.Color.Transparent;
+            this.ExternalSettings.BackgroundImage = global::DSLauncherV2.Properties.Resources.tabbackground;
+            this.ExternalSettings.Controls.Add(this.setNewLauncherPatchServer);
+            this.ExternalSettings.Controls.Add(this.accountsRestore);
+            this.ExternalSettings.Controls.Add(this.accountsBackup);
+            this.ExternalSettings.Controls.Add(this.metroLabel20);
+            this.ExternalSettings.Controls.Add(this.metroLabel23);
+            this.ExternalSettings.Controls.Add(this.ThemeSelector);
+            this.ExternalSettings.Controls.Add(this.metroLabel19);
+            this.ExternalSettings.Controls.Add(this.DiscordRPCCheckBox);
+            this.ExternalSettings.Controls.Add(this.metroLabel7);
+            this.ExternalSettings.Controls.Add(this.ToggleLocalTime);
+            this.ExternalSettings.Controls.Add(this.metroLabel6);
+            this.ExternalSettings.Controls.Add(this.ToggleLogTime);
+            this.ExternalSettings.Controls.Add(this.metroLabel5);
+            this.ExternalSettings.Controls.Add(this.ToggleChatAppend);
+            this.ExternalSettings.Controls.Add(this.metroLabel4);
+            this.ExternalSettings.Controls.Add(this.ToggleChatLog);
+            this.ExternalSettings.HorizontalScrollbarBarColor = true;
+            this.ExternalSettings.HorizontalScrollbarHighlightOnWheel = false;
+            this.ExternalSettings.HorizontalScrollbarSize = 10;
+            this.ExternalSettings.Location = new System.Drawing.Point(4, 38);
+            this.ExternalSettings.Name = "ExternalSettings";
+            this.ExternalSettings.Size = new System.Drawing.Size(518, 325);
+            this.ExternalSettings.TabIndex = 2;
+            this.ExternalSettings.Text = "External Settings";
+            this.ExternalSettings.VerticalScrollbarBarColor = true;
+            this.ExternalSettings.VerticalScrollbarHighlightOnWheel = false;
+            this.ExternalSettings.VerticalScrollbarSize = 10;
+            // 
+            // setNewLauncherPatchServer
+            // 
+            this.setNewLauncherPatchServer.Location = new System.Drawing.Point(303, 257);
+            this.setNewLauncherPatchServer.Name = "setNewLauncherPatchServer";
+            this.setNewLauncherPatchServer.Size = new System.Drawing.Size(184, 29);
+            this.setNewLauncherPatchServer.TabIndex = 50;
+            this.setNewLauncherPatchServer.Text = "Set New Launcher Patch Server";
+            this.setNewLauncherPatchServer.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.setNewLauncherPatchServer.UseSelectable = true;
+            this.setNewLauncherPatchServer.UseStyleColors = true;
+            this.setNewLauncherPatchServer.Click += new System.EventHandler(this.setNewLauncherPatchServer_Click);
+            // 
+            // accountsRestore
+            // 
+            this.accountsRestore.Location = new System.Drawing.Point(320, 115);
+            this.accountsRestore.Name = "accountsRestore";
+            this.accountsRestore.Size = new System.Drawing.Size(143, 23);
+            this.accountsRestore.TabIndex = 49;
+            this.accountsRestore.Text = "Restore My Backup";
+            this.accountsRestore.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.accountsRestore.UseSelectable = true;
+            this.accountsRestore.UseStyleColors = true;
+            this.accountsRestore.Click += new System.EventHandler(this.accountsRestore_Click);
+            // 
+            // accountsBackup
+            // 
+            this.accountsBackup.Location = new System.Drawing.Point(320, 77);
+            this.accountsBackup.Name = "accountsBackup";
+            this.accountsBackup.Size = new System.Drawing.Size(143, 23);
+            this.accountsBackup.TabIndex = 48;
+            this.accountsBackup.Text = "Backup My Accounts";
+            this.accountsBackup.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.accountsBackup.UseSelectable = true;
+            this.accountsBackup.UseStyleColors = true;
+            this.accountsBackup.Click += new System.EventHandler(this.accountsBackup_Click);
+            // 
+            // metroLabel20
+            // 
+            this.metroLabel20.AutoSize = true;
+            this.metroLabel20.Location = new System.Drawing.Point(329, 12);
+            this.metroLabel20.Name = "metroLabel20";
+            this.metroLabel20.Size = new System.Drawing.Size(134, 19);
+            this.metroLabel20.TabIndex = 20;
+            this.metroLabel20.Text = "Experimental Settings";
+            this.metroLabel20.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel20.UseCustomBackColor = true;
+            // 
+            // metroLabel23
+            // 
+            this.metroLabel23.AutoSize = true;
+            this.metroLabel23.Location = new System.Drawing.Point(61, 235);
+            this.metroLabel23.Name = "metroLabel23";
+            this.metroLabel23.Size = new System.Drawing.Size(92, 19);
+            this.metroLabel23.TabIndex = 19;
+            this.metroLabel23.Text = "Launcher Style";
+            this.metroLabel23.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel23.UseCustomBackColor = true;
+            // 
+            // ThemeSelector
+            // 
+            this.ThemeSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.ThemeSelector.FormattingEnabled = true;
+            this.ThemeSelector.ItemHeight = 23;
+            this.ThemeSelector.Items.AddRange(new object[] {
+            "Default",
+            "Black",
+            "White",
+            "Silver",
+            "Blue",
+            "Green",
+            "Lime",
+            "Teal",
+            "Orange",
+            "Brown",
+            "Pink",
+            "Magenta",
+            "Purple",
+            "Red",
+            "Yellow"});
+            this.ThemeSelector.Location = new System.Drawing.Point(32, 257);
+            this.ThemeSelector.Name = "ThemeSelector";
+            this.ThemeSelector.Size = new System.Drawing.Size(142, 29);
+            this.ThemeSelector.TabIndex = 18;
+            this.ThemeSelector.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ThemeSelector.UseCustomBackColor = true;
+            this.ThemeSelector.UseSelectable = true;
+            this.ThemeSelector.UseStyleColors = true;
+            this.ThemeSelector.SelectedIndexChanged += new System.EventHandler(this.ThemeSelector_SelectedIndexChanged);
+            // 
+            // metroLabel19
+            // 
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.Location = new System.Drawing.Point(359, 45);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(109, 19);
+            this.metroLabel19.TabIndex = 11;
+            this.metroLabel19.Text = "Discord Presence";
+            this.metroLabel19.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel19.UseCustomBackColor = true;
+            // 
+            // DiscordRPCCheckBox
+            // 
+            this.DiscordRPCCheckBox.AutoSize = true;
+            this.DiscordRPCCheckBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DiscordRPCCheckBox.Enabled = false;
+            this.DiscordRPCCheckBox.Location = new System.Drawing.Point(279, 46);
+            this.DiscordRPCCheckBox.Name = "DiscordRPCCheckBox";
+            this.DiscordRPCCheckBox.Size = new System.Drawing.Size(80, 17);
+            this.DiscordRPCCheckBox.TabIndex = 10;
+            this.DiscordRPCCheckBox.Text = "Off";
+            this.DiscordRPCCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.DiscordRPCCheckBox.UseCustomBackColor = true;
+            this.DiscordRPCCheckBox.UseSelectable = true;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(98, 109);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(98, 19);
+            this.metroLabel7.TabIndex = 9;
+            this.metroLabel7.Text = "Log Local Time";
+            this.metroLabel7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel7.UseCustomBackColor = true;
+            // 
+            // ToggleLocalTime
+            // 
+            this.ToggleLocalTime.AutoSize = true;
+            this.ToggleLocalTime.Checked = true;
+            this.ToggleLocalTime.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleLocalTime.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ToggleLocalTime.Location = new System.Drawing.Point(18, 110);
+            this.ToggleLocalTime.Name = "ToggleLocalTime";
+            this.ToggleLocalTime.Size = new System.Drawing.Size(80, 17);
+            this.ToggleLocalTime.TabIndex = 8;
+            this.ToggleLocalTime.Text = "On";
+            this.ToggleLocalTime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ToggleLocalTime.UseCustomBackColor = true;
+            this.ToggleLocalTime.UseSelectable = true;
+            this.ToggleLocalTime.CheckedChanged += new System.EventHandler(this.ToggleLocalTime_CheckedChanged);
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.Location = new System.Drawing.Point(98, 77);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(64, 19);
+            this.metroLabel6.TabIndex = 7;
+            this.metroLabel6.Text = "Log Time";
+            this.metroLabel6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel6.UseCustomBackColor = true;
+            // 
+            // ToggleLogTime
+            // 
+            this.ToggleLogTime.AutoSize = true;
+            this.ToggleLogTime.Checked = true;
+            this.ToggleLogTime.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleLogTime.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ToggleLogTime.Location = new System.Drawing.Point(18, 78);
+            this.ToggleLogTime.Name = "ToggleLogTime";
+            this.ToggleLogTime.Size = new System.Drawing.Size(80, 17);
+            this.ToggleLogTime.TabIndex = 6;
+            this.ToggleLogTime.Text = "On";
+            this.ToggleLogTime.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ToggleLogTime.UseCustomBackColor = true;
+            this.ToggleLogTime.UseSelectable = true;
+            this.ToggleLogTime.CheckedChanged += new System.EventHandler(this.ToggleLogTime_CheckedChanged);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(98, 45);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(87, 19);
+            this.metroLabel5.TabIndex = 5;
+            this.metroLabel5.Text = "Append Logs";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel5.UseCustomBackColor = true;
+            // 
+            // ToggleChatAppend
+            // 
+            this.ToggleChatAppend.AutoSize = true;
+            this.ToggleChatAppend.Checked = true;
+            this.ToggleChatAppend.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleChatAppend.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ToggleChatAppend.Location = new System.Drawing.Point(18, 46);
+            this.ToggleChatAppend.Name = "ToggleChatAppend";
+            this.ToggleChatAppend.Size = new System.Drawing.Size(80, 17);
+            this.ToggleChatAppend.TabIndex = 4;
+            this.ToggleChatAppend.Text = "On";
+            this.ToggleChatAppend.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ToggleChatAppend.UseCustomBackColor = true;
+            this.ToggleChatAppend.UseSelectable = true;
+            this.ToggleChatAppend.CheckedChanged += new System.EventHandler(this.ToggleChatAppend_CheckedChanged);
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(98, 13);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel4.TabIndex = 3;
+            this.metroLabel4.Text = "Chat Log";
+            this.metroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel4.UseCustomBackColor = true;
+            // 
+            // ToggleChatLog
+            // 
+            this.ToggleChatLog.AutoSize = true;
+            this.ToggleChatLog.Checked = true;
+            this.ToggleChatLog.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ToggleChatLog.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ToggleChatLog.Location = new System.Drawing.Point(18, 14);
+            this.ToggleChatLog.Name = "ToggleChatLog";
+            this.ToggleChatLog.Size = new System.Drawing.Size(80, 17);
+            this.ToggleChatLog.TabIndex = 2;
+            this.ToggleChatLog.Text = "On";
+            this.ToggleChatLog.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ToggleChatLog.UseCustomBackColor = true;
+            this.ToggleChatLog.UseSelectable = true;
+            this.ToggleChatLog.CheckedChanged += new System.EventHandler(this.ToggleChatLog_CheckedChanged);
+            // 
+            // CNS
+            // 
+            this.CNS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.CNS.Controls.Add(this.CNSImport);
+            this.CNS.Controls.Add(this.metroLabel18);
+            this.CNS.Controls.Add(this.metroProgressSpinner1);
+            this.CNS.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.CNS.HorizontalScrollbarBarColor = true;
+            this.CNS.HorizontalScrollbarHighlightOnWheel = false;
+            this.CNS.HorizontalScrollbarSize = 10;
+            this.CNS.Location = new System.Drawing.Point(4, 38);
+            this.CNS.Name = "CNS";
+            this.CNS.Size = new System.Drawing.Size(518, 325);
+            this.CNS.TabIndex = 0;
+            this.CNS.Text = "News";
+            this.CNS.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.CNS.UseCustomBackColor = true;
+            this.CNS.VerticalScrollbarBarColor = true;
+            this.CNS.VerticalScrollbarHighlightOnWheel = false;
+            this.CNS.VerticalScrollbarSize = 10;
+            // 
+            // CNSImport
+            // 
+            this.CNSImport.AllowNavigation = false;
+            this.CNSImport.AllowWebBrowserDrop = false;
+            this.CNSImport.IsWebBrowserContextMenuEnabled = false;
+            this.CNSImport.Location = new System.Drawing.Point(3, 3);
+            this.CNSImport.MinimumSize = new System.Drawing.Size(20, 20);
+            this.CNSImport.Name = "CNSImport";
+            this.CNSImport.ScrollBarsEnabled = false;
+            this.CNSImport.Size = new System.Drawing.Size(512, 319);
+            this.CNSImport.TabIndex = 23;
+            this.CNSImport.TabStop = false;
+            this.CNSImport.WebBrowserShortcutsEnabled = false;
+            this.CNSImport.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.CNSImport_Navigating);
+            // 
+            // metroLabel18
+            // 
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel18.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel18.ForeColor = System.Drawing.SystemColors.Control;
+            this.metroLabel18.Location = new System.Drawing.Point(197, 116);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(229, 25);
+            this.metroLabel18.TabIndex = 20;
+            this.metroLabel18.Text = "Connecting to DiscoveryGC";
+            this.metroLabel18.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel18.UseCustomBackColor = true;
+            // 
+            // metroProgressSpinner1
+            // 
+            this.metroProgressSpinner1.Location = new System.Drawing.Point(140, 110);
+            this.metroProgressSpinner1.Maximum = 100;
+            this.metroProgressSpinner1.Minimum = 30;
+            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
+            this.metroProgressSpinner1.Size = new System.Drawing.Size(41, 31);
+            this.metroProgressSpinner1.Speed = 3F;
+            this.metroProgressSpinner1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroProgressSpinner1.TabIndex = 19;
+            this.metroProgressSpinner1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroProgressSpinner1.UseCustomBackColor = true;
+            this.metroProgressSpinner1.UseSelectable = true;
+            this.metroProgressSpinner1.Value = 40;
+            // 
+            // MTC
+            // 
+            this.MTC.Controls.Add(this.CNS);
+            this.MTC.Controls.Add(this.ExternalSettings);
+            this.MTC.Controls.Add(this.GameSettings);
+            this.MTC.Controls.Add(this.Accounts);
+            this.MTC.Controls.Add(this.About);
+            this.MTC.Enabled = false;
+            this.MTC.HotTrack = true;
+            this.MTC.Location = new System.Drawing.Point(7, 5);
+            this.MTC.Name = "MTC";
+            this.MTC.SelectedIndex = 0;
+            this.MTC.Size = new System.Drawing.Size(526, 367);
+            this.MTC.TabIndex = 11;
+            this.MTC.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.MTC.UseSelectable = true;
+            this.MTC.SelectedIndexChanged += new System.EventHandler(this.MTC_SelectedIndexChanged);
             // 
             // Primary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackLocation = MetroFramework.Forms.BackLocation.BottomRight;
+            this.BackMaxSize = 800;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.OpenSortAccountWindow);
             this.Controls.Add(this.accountsSearchLabel);
@@ -1732,6 +1770,7 @@ namespace DSLauncherV2
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.currentAccountLabel);
             this.Controls.Add(this.actionsLabel);
+            this.Controls.Add(this.PictureBox);
             this.DisplayHeader = false;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
@@ -1741,25 +1780,26 @@ namespace DSLauncherV2
             this.Name = "Primary";
             this.Padding = new System.Windows.Forms.Padding(18, 30, 18, 19);
             this.Resizable = false;
-            this.Text = "Discovery Launcher";
+            this.Text = "Zoner Universe Launcher";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TransparencyKey = System.Drawing.Color.SkyBlue;
             this.Load += new System.EventHandler(this.Primary_Load);
             this.Shown += new System.EventHandler(this.Primary_Shown);
-            this.MTC.ResumeLayout(false);
-            this.CNS.ResumeLayout(false);
-            this.CNS.PerformLayout();
-            this.ExternalSettings.ResumeLayout(false);
-            this.ExternalSettings.PerformLayout();
-            this.GameSettings.ResumeLayout(false);
-            this.GameSettings.PerformLayout();
-            this.Accounts.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.AccountsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.AccountContextMenu.ResumeLayout(false);
-            this.AccountCategoryTabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.About.ResumeLayout(false);
             this.About.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.Accounts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AccountsGrid)).EndInit();
+            this.AccountCategoryTabControl.ResumeLayout(false);
+            this.GameSettings.ResumeLayout(false);
+            this.GameSettings.PerformLayout();
+            this.ExternalSettings.ResumeLayout(false);
+            this.ExternalSettings.PerformLayout();
+            this.CNS.ResumeLayout(false);
+            this.CNS.PerformLayout();
+            this.MTC.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1773,31 +1813,65 @@ namespace DSLauncherV2
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.Label label2;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTabControl MTC;
-        private MetroFramework.Controls.MetroTabPage CNS;
-        private MetroFramework.Controls.MetroTabPage Accounts;
-        private MetroFramework.Controls.MetroTabPage ExternalSettings;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private MetroFramework.Controls.MetroLink launchGame;
         private MetroFramework.Controls.MetroLink patchGame;
-        private MetroFramework.Controls.MetroTabPage About;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroTextBox aboutInfo;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroToggle ToggleChatLog;
+        private MetroFramework.Controls.MetroContextMenu AccountContextMenu;
+        private ToolStripMenuItem CreateNewAccount;
+        private ToolStripMenuItem DeleteSelectedAccounts;
+        private ToolStripMenuItem ExportAccounts;
+        private SaveFileDialog ExportAccountSaveFileDialog;
+        private ToolStripMenuItem EditAccount;
+        private ToolStripMenuItem MarkFavorite;
+        private MetroFramework.Controls.MetroLabel CurrentSelectedAccountLabel;
+        private MetroFramework.Controls.MetroLink FavAccount1;
+        private MetroFramework.Controls.MetroLink FavAccount4;
+        private MetroFramework.Controls.MetroLink FavAccount3;
+        private MetroFramework.Controls.MetroLink FavAccount2;
+        private MetroFramework.Controls.MetroLink RecentAccounts4;
+        private MetroFramework.Controls.MetroLink RecentAccounts3;
+        private MetroFramework.Controls.MetroLink RecentAccounts2;
+        private MetroFramework.Controls.MetroLink RecentAccounts1;
+        private ToolStripMenuItem importLauncherAccountsToolStripMenuItem;
+        private OpenFileDialog ImportLauncherFile;
+        private MetroFramework.Controls.MetroLabel downloadProgress;
+        private MetroFramework.Controls.MetroProgressBar patchDownload;
+        private MetroFramework.Controls.MetroLabel launcherCheckerLabel;
+        private MetroFramework.Controls.MetroProgressSpinner launcherPatchSpinner;
+        private MetroFramework.Controls.MetroLabel accountsSearchLabel;
+        private MetroFramework.Controls.MetroTextBox accountsSearch;
+        private MetroFramework.Controls.MetroButton OpenSortAccountWindow;
+        private ToolStripMenuItem bulkSetCategoryToolStripMenuItem;
+        private MetroFramework.Controls.MetroTabControl MTC;
+        private MetroFramework.Controls.MetroTabPage CNS;
+        private WebBrowser CNSImport;
+        private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
+        private MetroFramework.Controls.MetroTabPage ExternalSettings;
+        private MetroFramework.Controls.MetroButton setNewLauncherPatchServer;
+        private MetroFramework.Controls.MetroButton accountsRestore;
+        private MetroFramework.Controls.MetroButton accountsBackup;
+        private MetroFramework.Controls.MetroLabel metroLabel20;
+        private MetroFramework.Controls.MetroLabel metroLabel23;
+        private MetroFramework.Controls.MetroComboBox ThemeSelector;
+        private MetroFramework.Controls.MetroLabel metroLabel19;
+        private MetroFramework.Controls.MetroToggle DiscordRPCCheckBox;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroToggle ToggleLocalTime;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroToggle ToggleLogTime;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroToggle ToggleChatAppend;
-        private MetroFramework.Controls.MetroTile metroTile4;
-        private MetroFramework.Controls.MetroTile metroTile3;
-        private MetroFramework.Controls.MetroTile metroTile2;
-        private MetroFramework.Controls.MetroTile metroTile1;
-        private MetroFramework.Controls.MetroLabel metroLabel18;
-        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroToggle ToggleChatLog;
         private MetroFramework.Controls.MetroTabPage GameSettings;
+        private MetroFramework.Controls.MetroLabel HDGraphicsLabel;
+        private MetroFramework.Controls.MetroToggle HDGraphics;
+        private MetroFramework.Controls.MetroLabel NumericDamageLabel;
+        private MetroFramework.Controls.MetroToggle NumericDamage;
+        private MetroFramework.Controls.MetroLabel ChatWarning;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
+        private MetroFramework.Controls.MetroToggle DisableChat;
         private MetroFramework.Controls.MetroLabel metroLabel17;
         private MetroFramework.Controls.MetroToggle ToggleWindowedMode;
         private MetroFramework.Controls.MetroLabel WidthLabel;
@@ -1818,57 +1892,24 @@ namespace DSLauncherV2
         private MetroFramework.Controls.MetroToggle ToggleLagIcon;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroToggle ToggleFlightText;
-        private MetroFramework.Controls.MetroLabel metroLabel23;
-        private MetroFramework.Controls.MetroComboBox ThemeSelector;
-        private MetroFramework.Controls.MetroLabel ChatWarning;
-        private MetroFramework.Controls.MetroLabel metroLabel15;
-        private MetroFramework.Controls.MetroToggle DisableChat;
+        private MetroFramework.Controls.MetroTabPage Accounts;
         private MetroFramework.Controls.MetroGrid AccountsGrid;
-        private MetroFramework.Controls.MetroContextMenu AccountContextMenu;
-        private ToolStripMenuItem CreateNewAccount;
-        private ToolStripMenuItem DeleteSelectedAccounts;
-        private ToolStripMenuItem ExportAccounts;
-        private SaveFileDialog ExportAccountSaveFileDialog;
-        private ToolStripMenuItem EditAccount;
-        private ToolStripMenuItem MarkFavorite;
-        private MetroFramework.Controls.MetroLabel CurrentSelectedAccountLabel;
-        private MetroFramework.Controls.MetroLink FavAccount1;
-        private MetroFramework.Controls.MetroLink FavAccount4;
-        private MetroFramework.Controls.MetroLink FavAccount3;
-        private MetroFramework.Controls.MetroLink FavAccount2;
-        private MetroFramework.Controls.MetroLink RecentAccounts4;
-        private MetroFramework.Controls.MetroLink RecentAccounts3;
-        private MetroFramework.Controls.MetroLink RecentAccounts2;
-        private MetroFramework.Controls.MetroLink RecentAccounts1;
-        private ToolStripMenuItem importLauncherAccountsToolStripMenuItem;
-        private OpenFileDialog ImportLauncherFile;
-        private WebBrowser CNSImport;
-        private MetroFramework.Controls.MetroLabel NumericDamageLabel;
-        private MetroFramework.Controls.MetroToggle NumericDamage;
-        private MetroFramework.Controls.MetroLabel metroLabel20;
-        private MetroFramework.Controls.MetroLabel downloadProgress;
-        private MetroFramework.Controls.MetroProgressBar patchDownload;
-        private MetroFramework.Controls.MetroLabel launcherCheckerLabel;
-        private MetroFramework.Controls.MetroProgressSpinner launcherPatchSpinner;
-        private MetroFramework.Controls.MetroLabel accountsSearchLabel;
-        private MetroFramework.Controls.MetroTextBox accountsSearch;
-        private MetroFramework.Controls.MetroLabel metroLabel19;
-        private MetroFramework.Controls.MetroToggle DiscordRPCCheckBox;
-        private MetroFramework.Controls.MetroTabControl AccountCategoryTabControl;
-        private TabPage unfilteredTab;
         private DataGridViewTextBoxColumn AccName;
         private DataGridViewTextBoxColumn AccDescription;
         private DataGridViewTextBoxColumn AccCategory;
         private DataGridViewTextBoxColumn AccIsFav;
         private DataGridViewTextBoxColumn AccCode;
         private DataGridViewTextBoxColumn AccSignature;
-        private MetroFramework.Controls.MetroButton OpenSortAccountWindow;
-        private ToolStripMenuItem bulkSetCategoryToolStripMenuItem;
-        private MetroFramework.Controls.MetroButton accountsRestore;
-        private MetroFramework.Controls.MetroButton accountsBackup;
-        private MetroFramework.Controls.MetroButton setNewLauncherPatchServer;
-        private MetroFramework.Controls.MetroLabel HDGraphicsLabel;
-        private MetroFramework.Controls.MetroToggle HDGraphics;
+        private MetroFramework.Controls.MetroTabControl AccountCategoryTabControl;
+        private TabPage unfilteredTab;
+        private MetroFramework.Controls.MetroTabPage About;
+        private MetroFramework.Controls.MetroTile metroTile4;
+        private MetroFramework.Controls.MetroTile metroTile3;
+        private MetroFramework.Controls.MetroTile metroTile2;
+        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTextBox aboutInfo;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private PictureBox PictureBox;
     }
 }
 

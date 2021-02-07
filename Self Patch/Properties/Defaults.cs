@@ -11,7 +11,7 @@ namespace DSSelfPatch.Properties
 	internal sealed class Defaults : ApplicationSettingsBase
 	{
         public static Defaults Settings { get; } = (Defaults)Synchronized(new Defaults());
-        [DefaultSettingValue("https://github.com/LazDisco/DSLauncher/blob/patch/patchlist.xml")]
+        [DefaultSettingValue("http://pechey.net/flu/launcher/patchlist.xml")]
         [ApplicationScopedSetting]
         [DebuggerNonUserCode]
         public string KittyURL => (string)this[nameof(KittyURL)];

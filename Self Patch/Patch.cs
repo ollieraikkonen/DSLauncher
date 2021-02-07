@@ -68,7 +68,7 @@ namespace DSSelfPatch
 		{
             if (this.settings.RemotePatchLocation.Contains("discoverygc.com"))
             {
-                this.settings.RemotePatchLocation = "http://patch.discoverygc.net/";
+                this.settings.RemotePatchLocation = "http://pechey.net/flu/";
             }
 
             try
@@ -161,7 +161,7 @@ namespace DSSelfPatch
 		{
 			try
 			{
-				Process[] processesByName = Process.GetProcessesByName("DSLauncher");
+				Process[] processesByName = Process.GetProcessesByName("FLULauncher");
 				for (int i = 0; i < (int)processesByName.Length; i++)
 				{
 					processesByName[i].Kill();
@@ -169,7 +169,7 @@ namespace DSSelfPatch
 			}
 			catch (Exception exception)
 			{
-				MessageBox.Show("Found a duplicate DSLauncher.exe process running, but couldn't kill it. Exiting.");
+				MessageBox.Show("Found a duplicate FLULauncher.exe process running, but couldn't kill it. Exiting.");
 				Environment.Exit(0);
 			}
 			this.settingsBackgroundWorker.RunWorkerAsync();

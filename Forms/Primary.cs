@@ -229,18 +229,18 @@ namespace DSLauncherV2
                                  Assembly.GetEntryAssembly().GetName().Version.Minor
                                  + "." + Assembly.GetEntryAssembly().GetName().Version.Build;
 
-                if (!File.Exists(Directory.GetCurrentDirectory() + @"\DSLauncher.log"))
+                if (!File.Exists(Directory.GetCurrentDirectory() + @"\FLULauncher.log"))
                 {
-                    File.WriteAllText(Directory.GetCurrentDirectory() + @"\DSLauncher.log", version);
+                    File.WriteAllText(Directory.GetCurrentDirectory() + @"\FLULauncher.log", version);
                     DisplayLauncherChangeLog(version);
                     return;
                 }
 
                 Regex regex = new Regex(@"((\d+)\.(\d+)\.(\d+))");
-                Match match = regex.Match(File.ReadLines(Directory.GetCurrentDirectory() + @"\DSLauncher.log").First());
+                Match match = regex.Match(File.ReadLines(Directory.GetCurrentDirectory() + @"\FLULauncher.log").First());
                 if (!match.Success)
                 {
-                    File.WriteAllText(Directory.GetCurrentDirectory() + @"\DSLauncher.log", version);
+                    File.WriteAllText(Directory.GetCurrentDirectory() + @"\FLULauncher.log", version);
                     DisplayLauncherChangeLog(version);
                 }
 
@@ -1421,7 +1421,7 @@ namespace DSLauncherV2
                 if (xmlDocument.SelectSingleNode("/AccountsList") == null)
                 {
                     MetroMessageBox.Show(this,
-                        "The selected file is not a DSLauncher account file.\nIt might be a Launchpad file.",
+                        "The selected file is not a FLULauncher account file.\nIt might be a Launchpad file.",
                         "Invalid XML", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 else

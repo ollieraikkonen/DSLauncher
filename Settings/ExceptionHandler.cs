@@ -11,11 +11,11 @@ namespace DSLauncherV2
             switch (code)
             {
                 case ExceptionCode.C01:
-                    MetroMessageBox.Show(activeForm, "Could not find DSLauncher's configuration file. \n\nAdditional Informations: " + exmessage, "Error Code: C01", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MetroMessageBox.Show(activeForm, "Could not find FLILauncher's configuration file. \n\nAdditional Informations: " + exmessage, "Error Code: C01", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     Environment.Exit(0);
                     break;
                 case ExceptionCode.C02:
-                    MetroMessageBox.Show(Form.ActiveForm, "DSLauncher configuration file corrupted. \n\nAdditional Informations: " + exmessage, "Error Code: C02", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MetroMessageBox.Show(Form.ActiveForm, "FLULauncher configuration file corrupted. \n\nAdditional Informations: " + exmessage, "Error Code: C02", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     Environment.Exit(0);
                     break;
                 case ExceptionCode.C03:
@@ -23,11 +23,11 @@ namespace DSLauncherV2
                     Environment.Exit(0);
                     break;
                 case ExceptionCode.C04:
-                    MetroMessageBox.Show(activeForm, "DSLauncher could not load the account file.\n\nAdditional Informations: " + exmessage, "Error Code: C04", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MetroMessageBox.Show(activeForm, "FLULauncher could not load the account file.\n\nAdditional Informations: " + exmessage, "Error Code: C04", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     Environment.Exit(0);
                     break;
                 case ExceptionCode.C05:
-                    MetroMessageBox.Show(activeForm, "Unable to load account. Accounts no longer exists or is corrpted.", "Error Code: C05", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MetroMessageBox.Show(activeForm, "Unable to load account. Accounts no longer exists or is corrupted.", "Error Code: C05", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     break;
                 case ExceptionCode.C06:
                     MetroMessageBox.Show(activeForm, "Unable to save config file.\n\nAdditional Informations: " + exmessage, "Error Code: C06", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -42,7 +42,7 @@ namespace DSLauncherV2
                                                      "\n\nAdditional Informations: " + exmessage, "Error Code: C08", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     break;
                 case ExceptionCode.F01:
-                    MetroMessageBox.Show(activeForm, "DSLauncher could not contact the patch server.\n\nAdditional Informations: " + exmessage, "Error Code: F01", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MetroMessageBox.Show(activeForm, "FLULauncher could not contact the patch server.\n\nAdditional Informations: " + exmessage, "Error Code: F01", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     break;
                 case ExceptionCode.F02:
                     MetroMessageBox.Show(activeForm, "An error has occurred while parsing the content of the patch list file.\n\nAdditional Informations: " + exmessage, "Error Code: F02", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -50,7 +50,7 @@ namespace DSLauncherV2
                         Environment.Exit(0);
                     break;
                 case ExceptionCode.I01:
-                    MetroMessageBox.Show(activeForm, "DSLauncher account import exception.\n\nAdditional Informations: " + exmessage, "Error Code: I01", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MetroMessageBox.Show(activeForm, "FLULauncher account import exception.\n\nAdditional Informations: " + exmessage, "Error Code: I01", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     Environment.Exit(0);
                     break;
                 case ExceptionCode.L01:

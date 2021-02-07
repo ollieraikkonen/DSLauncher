@@ -1365,7 +1365,7 @@ namespace DSLauncherV2
             this.metroLabel3.Size = new System.Drawing.Size(186, 25);
             this.metroLabel3.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel3.TabIndex = 16;
-            this.metroLabel3.Text = "About DSLauncher V2";
+            this.metroLabel3.Text = "About FLULauncher V2";
             this.metroLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel3.UseCustomBackColor = true;
